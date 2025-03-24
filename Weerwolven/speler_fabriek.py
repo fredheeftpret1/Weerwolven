@@ -1,0 +1,138 @@
+from handige_functies import krijg_teksten, print_story_confirmation, print_story
+import random
+from time import sleep
+
+def voer_dorpeling_uit(spel):
+    # Haal de lijst "DORPELING" op
+    dorpelingen_teksten = krijg_teksten().get("DORPELING", [])
+
+    # Kies een willekeurige droom
+    droom_index = random.randint(0, len(dorpelingen_teksten) - 1)
+
+    # Vertel de situatie en vraag naar bevestiging voor het vervolg
+    bevestiging = print_story_confirmation(dorpelingen_teksten[droom_index]["situatie"], len(dorpelingen_teksten[droom_index]["vervolg"]))
+
+    # Vertel het vervolg aan de hand van de bevestiging
+    print_story_confirmation(dorpelingen_teksten[droom_index]["vervolg"][str(bevestiging)], 1)
+
+    # Vertel de eindzin
+    print_story(dorpelingen_teksten[droom_index]["afsluittekst"])
+
+    input("Druk op ENTER om je beurt te beëindigen >>")
+
+
+def voer_weerwolf_uit(player, spel):
+    # Haal de lijst "WEERWOLVEN" op
+    weerwolven_teksten = krijg_teksten().get("WEERWOLF", [])
+
+    # Kies een willekeurige variatie
+    variatie_index = random.randint(0, len(weerwolven_teksten) - 1)
+
+    # Vertel de bekendmaking en vraag naar bevestiging voor het vervolg
+    bekendmaking = weerwolven_teksten[variatie_index]["bekendmaking"]
+    bekendmaking = bekendmaking.replace("(WOLF BEKENDMAKING PLACEHOLDER)", wolven_bekendmaking(player,spel))
+    print_story_confirmation(bekendmaking, 1)
+
+    # Vertel het uitkiezen en vraag naar bevestiging wie te doden
+    uitkiezen = weerwolven_teksten[variatie_index]["uitkiezen"]
+    uitkiezen = uitkiezen.replace("(WOLF KEUZE PLACEHOLDER)", wolven_keuze(spel))
+    opties = wolven_opties(spel)
+    uitkiezen = uitkiezen.replace("(WOLF OPTIES PLACEHOLDER)", wolven_opties_namen(opties))
+    keuze = print_story_confirmation(uitkiezen, len(opties))
+    spel.weerwolf_keuzes.append(opties[keuze - 1])
+    # Vertel de eindzin
+    eindzin = weerwolven_teksten[variatie_index]["afsluittekst"]
+    eindzin = eindzin.replace("(WOLF KEUZE)", spel.spelers_lijst[keuze].naam)
+    print_story(eindzin)
+
+    input("Druk op ENTER in om je beurt te beëindigen >>")
+
+def wolven_bekendmaking(player, spel):
+    andere_weerwolven = lijst_andere_van_rol("Weerwolf",player, spel)
+    namen = [obj.naam for obj in andere_weerwolven]  # Haal de naam uit elke weerwolf
+
+    match len(andere_weerwolven):
+        case 0: bekendmaking = "Jij bent de enige weerwolf!"
+
+        case 1: bekendmaking = f"{namen[0]} is ook een weerwolf!"
+
+        case _: bekendmaking = f"{', '.join(namen[:-1])} en {namen[-1]} zijn ook weerwolven!"
+
+    return bekendmaking
+
+def wolven_keuze(spel):
+    namen = [obj.naam for obj in spel.weerwolf_keuzes]  # Haal de naam uit elke weerwolf keuze
+
+    match len(spel.weerwolf_keuzes):
+        case 0:
+            keuze_tekst = "Er is nog niemand aangeduid om op te eten"
+
+        case 1:
+            keuze_tekst = f"{namen[0]} is al gekozen als mogelijk prooi!"
+
+        case _:
+            keuze_tekst = f"{', '.join(namen[:-1])} en {namen[-1]} zijn al gekozen als mogelijke prooien!"
+
+    return keuze_tekst
+
+def wolven_opties(spel):
+    return lijst_andere_behalve_rol("Weerwolf", spel)
+
+def wolven_opties_namen(opties):
+    namen = [obj.naam for obj in opties]  # Haal de naam uit elke speler
+    index = 1
+    opties_namen = "Je kan kiezen uit "
+    for naam in namen:
+        opties_namen += "(" + str(index) + ") " + naam + " - "
+        index += 1
+
+    return opties_namen
+
+
+def lijst_andere_van_rol(rol, actieve_speler, spel):
+    lijst = []
+    for speler in spel.levende_spelers() :
+        if speler.rol == rol and speler != actieve_speler:
+            lijst.append(speler)
+    return lijst
+
+def lijst_andere_behalve_rol(rol, spel):
+    lijst = []
+    for speler in spel.levende_spelers():
+        if speler.rol != rol:
+            lijst.append(speler)
+    return lijst
+
+class Speler:
+    def __init__(self, naam, rol):
+        self.naam = naam
+        self.rol = rol
+        self.beurt_gespeeld = False
+        self.is_dood = False
+
+        if naam == "Finn":
+            self.developer = True
+        else:
+            self.developer = False
+
+
+        print(f"Welkom bij het spel, {self.naam}!")
+        sleep(1)
+
+
+    def voer_rol_uit(self, spel):
+        match self.rol:
+            case "Dorpeling":
+                voer_dorpeling_uit(spel)
+            case "Weerwolf":
+                voer_weerwolf_uit(self, spel)
+            case "Politie":
+                police()
+            case "Dokter":
+                doctor()
+            case _:
+                print("Rol niet herkend")
+
+        self.beurt_gespeeld = True
+
+

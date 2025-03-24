@@ -1,0 +1,42 @@
+ _____                                                         _____
+( ___ )-------------------------------------------------------( ___ )
+ |   |                                                         |   |
+ |   |  _    _                              _                  |   |
+ |   | | |  | |                            | |                 |   |
+ |   | | |  | | ___  ___ _ ____      _____ | |_   _____ _ __   |   |
+ |   | | |/\| |/ _ \/ _ \ '__\ \ /\ / / _ \| \ \ / / _ \ '_ \  |   |
+ |   | \  /\  /  __/  __/ |   \ V  V / (_) | |\ V /  __/ | | | |   |
+ |   |  \/  \/ \___|\___|_|    \_/\_/ \___/|_| \_/ \___|_| |_| |   |
+ |___|                                                         |___|
+(_____)-------------------------------------------------------(_____)
+
+Welkom bij Weerwolven Verteller van Finn Rijnhout!
+Dit spel is een beetje anders als normale Weerwolven.
+Er zijn vier rollen:
+- Weerwolf
+De weerwolf mag 1 persoon kiezen. Nadat de nacht voorbij is gaan we kijken welke persoon het meeste is gekozen.
+Die wordt opgegeten. Worden er meerdere personen als meest gekozen? Dan gaat er een willekeurig dood.
+- Dorpeling
+De dorpeling krijgt een grappig verhaal te zien.
+- Dokter
+De dokter mag een iemand redden van de dood. Deze persoon kan dus niet worden gedood door de weerwolven.
+Als er maar 1 persoon als meeste wordt gekozen, en er zijn geen anderen, en de dokter redt deze persoon is niemand dood!
+- Politie
+De politie mag elke nacht van 1 iemand weten of hij/zij een weerwolf is of niet.
+
+Regels:
+Iedereen gaat om te beurt naar de computer. Daar wordt gevraagd wie hij/zij is. Het is VERBODEN om een andere naam in te geven.
+Daarna kan deze persoon zijn/haar rol uitvoeren.
+Na dat iedereen is geweest, begint het stemmen. Iedereen gaat om te beurt naar de computer en stem daar op een verdachte.
+Eens dat iedereen heeft gestemd, wordt de persoon met de meeste stemmen gevangengenomen.
+Als er 2 of meer personen zijn met de meeste stemmen, gaat er 1 willekeurig dood.
+Na het spel wordt het spel opgeslagen in de map "Alle opgeslagen spellen", in een leuke verhaalvorm.
+
+BELANGRIJK:
+Als iedereen is geweest in de nacht of bij het stemmen, wordt nog eens gevraagd wie je bent.
+Hier moet je gewoon een random naam typen.
+Er wordt gewerkt aan deze fout.
+
+Geniet ervan!
+Heb je vragen, suggesties of heb je een fout ontdekt?
+Mail dan naar finn.rijnhout+weerwolven_spel@gmail.com

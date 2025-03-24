@@ -1,0 +1,18 @@
+ _____                                                         _____
+( ___ )-------------------------------------------------------( ___ )
+ |   |                                                         |   |
+ |   |  _    _                              _                  |   |
+ |   | | |  | |                            | |                 |   |
+ |   | | |  | | ___  ___ _ ____      _____ | |_   _____ _ __   |   |
+ |   | | |/\| |/ _ \/ _ \ '__\ \ /\ / / _ \| \ \ / / _ \ '_ \  |   |
+ |   | \  /\  /  __/  __/ |   \ V  V / (_) | |\ V /  __/ | | | |   |
+ |   |  \/  \/ \___|\___|_|    \_/\_/ \___/|_| \_/ \___|_| |_| |   |
+ |___|                                                         |___|
+(_____)-------------------------------------------------------(_____)
+
+Op {datum} werd Wakkerdam weer aangevallen door weerwolven!
+Spelers: {spelers_namen}
+Samen hebben ze gevochten tegen de weerwolven.
+Maar ze zijn maar geraakt tot nacht {nacht}
+{Winmanier}
+Rollen: {rollen}
