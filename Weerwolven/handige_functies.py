@@ -1,8 +1,7 @@
 import time
 import json
-import datetime
 
-WACHT_TIJD = 1
+WACHT_TIJD = 2
 
 def krijg_teksten():
     # Geef het pad van je JSON-bestand op
@@ -31,13 +30,21 @@ def print_story_confirmation(tekst, mogelijkheden):
 
     while True:
         try:
-            bevestiging = int(input())
+            bevestiging = int(input(">>"))
             if 1 <= bevestiging < int(mogelijkheden + 1):  # Controleer of het binnen het bereik ligt
                 return int(bevestiging)
             else:
                 print(f"Gelieve een geldige keuze te maken (1 t/m {mogelijkheden}).")
         except ValueError:
             print("Ongeldige invoer. Voer een geheel getal in.")
+
+def print_story_pick_from_list(opties):
+    namen = [obj.naam for obj in opties]  # Haal de namen op
+    opties_namen = "Je kan kiezen uit " + " - ".join(
+        f"({i + 1}) {namen[i]}" for i in range(len(namen))
+    )
+
+    return print_story_confirmation(opties_namen, len(opties))
 
 
 def clear_console():

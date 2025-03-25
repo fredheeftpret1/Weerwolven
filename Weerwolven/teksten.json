@@ -149,20 +149,213 @@
     {
       "variatie": 0,
       "bekendmaking": "Je voelt je niet zo lekker in je slaap.\nDan merk je de volle maan op.\nOh nee je bent een weerwolf! \nJe kijkt rond op zoek naar andere weerwolven. \n(WOLF BEKENDMAKING PLACEHOLDER) \n(1) Ga verder",
-      "uitkiezen": "Je buik gromt. Tijd om iemand te zoeken voor een snackje. \n(WOLF KEUZE PLACEHOLDER)\n(WOLF OPTIES PLACEHOLDER)" ,
+      "uitkiezen": "Je buik gromt. Tijd om iemand te zoeken voor een snackje. \n(WOLF KEUZE PLACEHOLDER)\n(WOLF OPTIES PLACEHOLDER)",
       "afsluittekst": "Je hebt gekozen voor (WOLF KEUZE). Nu is het afwachten wat de nacht nog brengt."
     },
     {
       "variatie": 1,
       "bekendmaking": "Je ligt te woelen in je bed.\nPlots merk je jouw grote klauwen op.\nOh nee je bent een weerwolf! \nJe kijkt rond op zoek naar andere weerwolven. \n(WOLF BEKENDMAKING PLACEHOLDER) \n(1) Ga verder",
-      "uitkiezen": "je begint stilaan honger te krijgen. Daar moet je iets aan doen. \n(WOLF KEUZE PLACEHOLDER)\n(WOLF OPTIES PLACEHOLDER)" ,
+      "uitkiezen": "Je begint stilaan honger te krijgen. Daar moet je iets aan doen. \n(WOLF KEUZE PLACEHOLDER)\n(WOLF OPTIES PLACEHOLDER)",
       "afsluittekst": "Je hebt gekozen voor (WOLF KEUZE). Wat zal er nog gebeuren deze nacht?"
+    },
+    {
+      "variatie": 2,
+      "bekendmaking": "Je wordt wakker met een vreemd gevoel.\nDe maan schijnt fel door het raam.\nJe voelt je anders... sterker...\nJe bent een weerwolf!\n(WOLF BEKENDMAKING PLACEHOLDER)\n(1) Ga verder",
+      "uitkiezen": "Je ruikt de geur van het dorp. Honger maakt zich van je meester.\nWie wordt je prooi?\n(WOLF KEUZE PLACEHOLDER)\n(WOLF OPTIES PLACEHOLDER)",
+      "afsluittekst": "Jouw keuze is gevallen op (WOLF KEUZE). De nacht is nog jong..."
+    },
+    {
+      "variatie": 3,
+      "bekendmaking": "Je voelt een vreemde tinteling in je vingers.\nLangzaam groeien je nagels uit tot klauwen.\nJe bent een weerwolf!\n(WOLF BEKENDMAKING PLACEHOLDER)\n(1) Ga verder",
+      "uitkiezen": "Je instinct neemt het over.\nJe moet iemand vinden...\n(WOLF KEUZE PLACEHOLDER)\n(WOLF OPTIES PLACEHOLDER)",
+      "afsluittekst": "Je hebt je keuze gemaakt: (WOLF KEUZE). Wat zal de ochtend brengen?"
+    },
+    {
+      "variatie": 4,
+      "bekendmaking": "Je kijkt in de spiegel en schrikt.\nJe ogen gloeien geel en je tanden zijn scherper.\nDe maan is vol.\nJe bent een weerwolf!\n(WOLF BEKENDMAKING PLACEHOLDER)\n(1) Ga verder",
+      "uitkiezen": "De honger groeit, je moet iemand vinden.\n(WOLF KEUZE PLACEHOLDER)\n(WOLF OPTIES PLACEHOLDER)",
+      "afsluittekst": "Je hebt gekozen voor (WOLF KEUZE). De nacht is nog niet voorbij..."
+    },
+    {
+      "variatie": 5,
+      "bekendmaking": "Een rilling gaat over je rug.\nJe botten kraken, je spieren spannen zich.\nJe verandert... Je bent een weerwolf!\n(WOLF BEKENDMAKING PLACEHOLDER)\n(1) Ga verder",
+      "uitkiezen": "Je voelt je roofdierinstinct opkomen.\nHet is tijd om een slachtoffer te kiezen...\n(WOLF KEUZE PLACEHOLDER)\n(WOLF OPTIES PLACEHOLDER)",
+      "afsluittekst": "Jouw prooi is gekozen: (WOLF KEUZE). Wat gebeurt er nu?"
+    },
+    {
+      "variatie": 6,
+      "bekendmaking": "Je lichaam voelt vreemd aan.\nJe kijkt naar beneden en ziet vacht groeien.\nJe beseft: je bent een weerwolf!\n(WOLF BEKENDMAKING PLACEHOLDER)\n(1) Ga verder",
+      "uitkiezen": "Je snuift de nachtelijke lucht op.\nWie zal je slachtoffer zijn?\n(WOLF KEUZE PLACEHOLDER)\n(WOLF OPTIES PLACEHOLDER)",
+      "afsluittekst": "De keuze is gemaakt: (WOLF KEUZE). Wat zal de nacht brengen?"
+    },
+    {
+      "variatie": 7,
+      "bekendmaking": "Je voelt je hart bonzen in je borstkas.\nJe huid jeukt, je handen veranderen.\nDe transformatie is compleet: je bent een weerwolf.\n(WOLF BEKENDMAKING PLACEHOLDER)\n(1) Ga verder",
+      "uitkiezen": "Een laag gegrom verlaat je keel.\nHet is tijd om te jagen...\n(WOLF KEUZE PLACEHOLDER)\n(WOLF OPTIES PLACEHOLDER)",
+      "afsluittekst": "Je hebt je keuze gemaakt: (WOLF KEUZE). Zal iemand je tegenhouden?"
+    },
+    {
+      "variatie": 8,
+      "bekendmaking": "De maan straalt fel neer op je lichaam.\nJe voelt je sterker, sneller, gevaarlijker.\nJe bent een weerwolf!\n(WOLF BEKENDMAKING PLACEHOLDER)\n(1) Ga verder",
+      "uitkiezen": "Je likt je lippen. Wie wordt jouw volgende slachtoffer?\n(WOLF KEUZE PLACEHOLDER)\n(WOLF OPTIES PLACEHOLDER)",
+      "afsluittekst": "Je hebt gekozen voor (WOLF KEUZE). De nacht houdt zijn adem in..."
+    },
+    {
+      "variatie": 9,
+      "bekendmaking": "Een hevige pijnscheut trekt door je lijf.\nJe kunt het niet tegenhouden: de weerwolf in jou ontwaakt.\n(WOLF BEKENDMAKING PLACEHOLDER)\n(1) Ga verder",
+      "uitkiezen": "Je speurt het duister af naar een prooi.\nWie zal het zijn?\n(WOLF KEUZE PLACEHOLDER)\n(WOLF OPTIES PLACEHOLDER)",
+      "afsluittekst": "Je hebt je keuze gemaakt: (WOLF KEUZE). De nacht zal het lot bepalen."
     }
   ],
-  "DOKTER": [],
-  "POLITIE": [],
+  "DOKTER": [
+    {
+      "variatie": 0,
+      "bekendmaking": "Je bent nog wakker.\nJe hoort allemaal piepjes.\nNatuurlijk, je hebt de nachtdienst in het ziekenhuis! \nJe kijkt rond op zoek naar andere collega's. \n(DOKTER BEKENDMAKING PLACEHOLDER) \n(1) Ga verder",
+      "uitkiezen": "Je moet iemand kiezen om op te nemen in het ziekenhuis.\n(DOKTER KEUZE PLACEHOLDER)\n(DOKTER OPTIES PLACEHOLDER)",
+      "afsluittekst": "Je hebt gekozen voor (DOKTER KEUZE). Nu is het afwachten wat de nacht nog brengt."
+    },
+    {
+      "variatie": 1,
+      "bekendmaking": "Je bent aan het indommelen.\nPlots schiet je wakker van een raar geluid.\nOh ja, je werkt in het ziekenhuis! \nJe kijkt rond op en ziet daar nog mensen op de dienst zitten. \n(DOKTER BEKENDMAKING PLACEHOLDER) \n(1) Ga verder",
+      "uitkiezen": "Er moet iemand opgenomen worden in het ziekenhuis.\n(DOKTER KEUZE PLACEHOLDER)\n(DOKTER OPTIES PLACEHOLDER)",
+      "afsluittekst": "Je kiest voor (DOKTER KEUZE). Wat zal er nog gebeuren deze nacht?"
+    },
+    {
+      "variatie": 2,
+      "bekendmaking": "Je opent je ogen en hoort een reeks piepende geluiden.\nEven weet je niet waar je bent… Tot het tot je doordringt: je hebt nachtdienst in het ziekenhuis!\nJe kijkt om je heen om te zien wie er nog meer aanwezig is.\n(DOKTER BEKENDMAKING PLACEHOLDER)\n(1) Ga verder",
+      "uitkiezen": "Een nieuwe patiënt heeft dringend zorg nodig.\n(DOKTER KEUZE PLACEHOLDER)\n(DOKTER OPTIES PLACEHOLDER)",
+      "afsluittekst": "Je besluit om (DOKTER KEUZE) op te nemen. De nacht is nog lang..."
+    },
+    {
+      "variatie": 3,
+      "bekendmaking": "Slaperig wrijf je in je ogen terwijl je alarmen hoort afgaan.\nJe bent even gedesoriënteerd, maar dan herinner je het je: je werkt vannacht in het ziekenhuis.\nJe scant de ruimte op zoek naar collega's.\n(DOKTER BEKENDMAKING PLACEHOLDER)\n(1) Ga verder",
+      "uitkiezen": "De volgende patiënt moet worden opgenomen.\n(DOKTER KEUZE PLACEHOLDER)\n(DOKTER OPTIES PLACEHOLDER)",
+      "afsluittekst": "Je hebt gekozen voor (DOKTER KEUZE). Wat zal de nacht nog brengen?"
+    },
+    {
+      "variatie": 4,
+      "bekendmaking": "Je voelt je ogen zwaar worden, maar plots schrik je op door een alarmsignaal.\nJe beseft snel waar je bent: op de spoedeisende hulp tijdens de nachtdienst.\nJe kijkt rond naar de andere medewerkers.\n(DOKTER BEKENDMAKING PLACEHOLDER)\n(1) Ga verder",
+      "uitkiezen": "Een beslissing moet worden genomen over een nieuwe opname.\n(DOKTER KEUZE PLACEHOLDER)\n(DOKTER OPTIES PLACEHOLDER)",
+      "afsluittekst": "Je kiest voor (DOKTER KEUZE). De nacht verloopt onvoorspelbaar..."
+    },
+    {
+      "variatie": 5,
+      "bekendmaking": "Je staart naar het computerscherm als je wordt opgeschrikt door een piepend alarm.\nMeteen word je alert—dit is de realiteit van een nachtdienst in het ziekenhuis.\nJe kijkt rond om te zien wie er nog meer aan het werk is.\n(DOKTER BEKENDMAKING PLACEHOLDER)\n(1) Ga verder",
+      "uitkiezen": "Een patiënt heeft onmiddellijke zorg nodig.\n(DOKTER KEUZE PLACEHOLDER)\n(DOKTER OPTIES PLACEHOLDER)",
+      "afsluittekst": "Je hebt gekozen voor (DOKTER KEUZE). Wat zal de nacht nog brengen?"
+    },
+    {
+      "variatie": 6,
+      "bekendmaking": "Je zucht en leunt achterover, de nachtdienst is nog lang niet voorbij.\nDan hoor je een reeks piepjes—een nieuwe oproep!\nJe kijkt snel rond naar de rest van het team.\n(DOKTER BEKENDMAKING PLACEHOLDER)\n(1) Ga verder",
+      "uitkiezen": "Je moet een keuze maken wie er wordt opgenomen.\n(DOKTER KEUZE PLACEHOLDER)\n(DOKTER OPTIES PLACEHOLDER)",
+      "afsluittekst": "Je hebt gekozen voor (DOKTER KEUZE). De nacht is nog jong..."
+    },
+    {
+      "variatie": 7,
+      "bekendmaking": "De stilte van de nacht wordt onderbroken door een plotselinge alarmtoon.\nJe schrikt op en beseft: je bent in het ziekenhuis, de nachtdienst is in volle gang.\nJe zoekt naar je collega’s.\n(DOKTER BEKENDMAKING PLACEHOLDER)\n(1) Ga verder",
+      "uitkiezen": "Een patiënt heeft spoedeisende hulp nodig.\n(DOKTER KEUZE PLACEHOLDER)\n(DOKTER OPTIES PLACEHOLDER)",
+      "afsluittekst": "Je hebt gekozen voor (DOKTER KEUZE). Hopelijk verloopt de rest van de nacht rustig..."
+    },
+    {
+      "variatie": 8,
+      "bekendmaking": "Je wrijft in je vermoeide ogen terwijl je de monotone piepjes hoort.\nDe nachtdienst kan zwaar zijn, maar je weet dat je alert moet blijven.\nJe kijkt rond naar je collega’s.\n(DOKTER BEKENDMAKING PLACEHOLDER)\n(1) Ga verder",
+      "uitkiezen": "De volgende patiënt heeft een bed nodig.\n(DOKTER KEUZE PLACEHOLDER)\n(DOKTER OPTIES PLACEHOLDER)",
+      "afsluittekst": "Je kiest voor (DOKTER KEUZE). De nacht is nog lang en vol verrassingen."
+    },
+    {
+      "variatie": 9,
+      "bekendmaking": "Je voelt je ogen zwaar worden, maar een luid geluid trekt meteen je aandacht.\nAl snel realiseer je je: je bent op de nachtdienst.\nJe kijkt rond naar de rest van het team.\n(DOKTER BEKENDMAKING PLACEHOLDER)\n(1) Ga verder",
+      "uitkiezen": "Er moet snel een keuze gemaakt worden voor opname.\n(DOKTER KEUZE PLACEHOLDER)\n(DOKTER OPTIES PLACEHOLDER)",
+      "afsluittekst": "Je besluit om (DOKTER KEUZE) op te nemen. De nacht is nog niet voorbij..."
+    },
+    {
+      "variatie": 10,
+      "bekendmaking": "Je hoort het zachte gezoem van de monitoren.\nPlots gaat een alarm af en je beseft dat je midden in je nachtdienst zit.\nJe kijkt snel rond naar de andere medewerkers.\n(DOKTER BEKENDMAKING PLACEHOLDER)\n(1) Ga verder",
+      "uitkiezen": "Een beslissing over opname moet worden genomen.\n(DOKTER KEUZE PLACEHOLDER)\n(DOKTER OPTIES PLACEHOLDER)",
+      "afsluittekst": "Je kiest voor (DOKTER KEUZE). Wat zal de nacht nog brengen?"
+    },
+    {
+      "variatie": 11,
+      "bekendmaking": "Je staart even naar het plafond terwijl je de constante piepjes hoort.\nDan herinner je het je: je bent op nachtdienst in het ziekenhuis.\nJe kijkt om je heen en zoekt je collega's.\n(DOKTER BEKENDMAKING PLACEHOLDER)\n(1) Ga verder",
+      "uitkiezen": "Je moet snel beslissen wie wordt opgenomen.\n(DOKTER KEUZE PLACEHOLDER)\n(DOKTER OPTIES PLACEHOLDER)",
+      "afsluittekst": "Je hebt (DOKTER KEUZE) gekozen. De nacht kan nog alle kanten op..."
+    }
+
+  ],
+  "POLITIE": [
+     {
+      "variatie": 0,
+      "bekendmaking": "Je verveelt je tijdens de nachtshift.\nJe werkt nog wat aan PV's die je collega's vandaag opgemaakt hebben.\nJe besluit een nieuw onderzoek te beginnen naar de verdwijning van iemand van het dorp.\n(1) Ga verder",
+      "uitkiezen": "Naar wie start je een onderzoek?\nJe kan maar 1 iemand kiezen om je aandacht op te focussen...\n(POLITIE OPTIES PLACEHOLDER)",
+      "afsluittekst weerwolf": "Je start je onderzoek.\nJe merkt op dat deze persoon zich op dit moment in het bos bevind.\nWat heeft (POLITIE KEUZE) daar vast?\nOh nee, je vermoedens waren correct!\n(POLITIE KEUZE) zit daar aan een been te knabbelen.\nHet is een weerwolf!",
+      "afsluittekst dorpeling": "Je begint dan maar aan je onderzoek.\nJe volgt (POLITIE KEUZE) door de straten.\nWaarom gaat hij nu dat gebouw binnen?\nAah, hij is daar op bezoek bij Tante Kaat!\n(POLITIE KEUZE) zit rustig thee te drinken aan tafel.\nHet is geen weerwolf!"
+    },
+    {
+      "variatie": 1,
+      "bekendmaking": "De stilte van de nacht hangt over het politiebureau.\nJe neemt nog een slok van je koude koffie en staart naar de stapel dossiers.\nMisschien is het tijd om een oude zaak opnieuw te bekijken…\n(1) Ga verder",
+      "uitkiezen": "Wie wekt je interesse?\nJe kunt maar één persoon volgen.\n(POLITIE OPTIES PLACEHOLDER)",
+      "afsluittekst weerwolf": "Je begint het onderzoek en volgt (POLITIE KEUZE) het bos in.\nJe ziet iets bewegen in het donker...\nJe hart slaat over als je ziet dat (POLITIE KEUZE) op iets zit te kauwen.\nHet is een weerwolf!",
+      "afsluittekst dorpeling": "Je volgt (POLITIE KEUZE) in de straten.\nHij lijkt nergens heen te gaan behalve… een bakkerij?\nBinnen zie je hem een brood bestellen en gezellig kletsen.\nHet is geen weerwolf!"
+    },
+    {
+      "variatie": 2,
+      "bekendmaking": "Je hoort de klok in het dorpsplein middernacht slaan.\nNog steeds geen meldingen, maar je voelt dat er iets niet klopt vannacht.\nJe besluit om zelf een onderzoek te starten.\n(1) Ga verder",
+      "uitkiezen": "Wie ga je in de gaten houden?\nJe kunt niet iedereen volgen, dus je moet een keuze maken.\n(POLITIE OPTIES PLACEHOLDER)",
+      "afsluittekst weerwolf": "Je verbergt je achter een boom terwijl (POLITIE KEUZE) door het bos sluipt.\nDan zie je iets afschuwelijks: hij buigt zich over een half opgegeten karkas.\nEen weerwolf!",
+      "afsluittekst dorpeling": "Je schaduwt (POLITIE KEUZE) door de straten.\nHij stopt bij een klein huisje en klopt op de deur.\nEen oudere dame doet open en omhelst hem.\nHet is geen weerwolf!"
+    },
+    {
+      "variatie": 3,
+      "bekendmaking": "Het bureau is verlaten, behalve jij en een knipperende TL-lamp.\nJe bladert door oude rapporten en stuit op een verdwijning die nooit is opgelost.\nMisschien is het tijd om dit mysterie op te lossen…\n(1) Ga verder",
+      "uitkiezen": "Wie lijkt verdacht?\nJe moet iemand kiezen om te observeren.\n(POLITIE OPTIES PLACEHOLDER)",
+      "afsluittekst weerwolf": "Je kijkt toe hoe (POLITIE KEUZE) de donkere steeg insluipt.\nEven later hoor je gekraak en gegrom.\nJe schijnt je zaklamp en ziet… scherpe tanden!\nEen weerwolf!",
+      "afsluittekst dorpeling": "Je volgt (POLITIE KEUZE) discreet.\nHij haalt een krant en gaat op een bankje zitten lezen.\nBlijkbaar had je het mis.\nHet is geen weerwolf!"
+    },
+    {
+      "variatie": 4,
+      "bekendmaking": "De radio kraakt met een statisch geluid terwijl je uit het raam kijkt.\nDe straten zijn verlaten, maar je gevoel zegt dat er iets niet klopt.\nTijd om in actie te komen.\n(1) Ga verder",
+      "uitkiezen": "Wie ga je onderzoeken?\nJe kunt slechts één persoon in de gaten houden.\n(POLITIE OPTIES PLACEHOLDER)",
+      "afsluittekst weerwolf": "Je sluipt achter (POLITIE KEUZE) aan.\nHij draait zich plots om, zijn ogen gloeien geel.\nJe hebt geen tijd om te reageren voordat hij op je afspringt.\nEen weerwolf!",
+      "afsluittekst dorpeling": "Je ziet hoe (POLITIE KEUZE) in een winkeltje verdwijnt.\nJe gluurt door het raam en ziet hem koekjes kopen.\nGewoon een dorpsbewoner.\nHet is geen weerwolf!"
+    },
+    {
+      "variatie": 5,
+      "bekendmaking": "Je zit in je dienstwagen, turend naar de donkere straten.\nEen lichte mist hangt over het dorp.\nDit voelt als de perfecte nacht om antwoorden te vinden.\n(1) Ga verder",
+      "uitkiezen": "Wie verdraagt het daglicht niet?\nJe moet een keuze maken en je onderzoek beginnen.\n(POLITIE OPTIES PLACEHOLDER)",
+      "afsluittekst weerwolf": "Je volgt (POLITIE KEUZE) door een steegje.\nPlots zie je zijn schaduw veranderen… groeien… klauwen?\nEen weerwolf!",
+      "afsluittekst dorpeling": "Je schaduwt (POLITIE KEUZE) tot aan een café.\nBinnen zit hij rustig aan een tafel met vrienden.\nNiets verdachts.\nHet is geen weerwolf!"
+    },
+    {
+      "variatie": 6,
+      "bekendmaking": "Je rekt je uit en kijkt op de klok: 3 uur ‘s nachts.\nDe perfecte tijd voor geheimen om naar boven te komen.\nJe besluit om je tijd nuttig te besteden.\n(1) Ga verder",
+      "uitkiezen": "Wie roept vragen op?\nJe kunt maar één persoon onderzoeken.\n(POLITIE OPTIES PLACEHOLDER)",
+      "afsluittekst weerwolf": "Je gluurt om de hoek en ziet (POLITIE KEUZE) knielen bij iets op de grond.\nEen doordringende stank van bloed vult je neus.\nEen weerwolf!",
+      "afsluittekst dorpeling": "Je volgt (POLITIE KEUZE) naar een smalle steeg.\nHij haalt gewoon zijn hond op van de oppas.\nHet is geen weerwolf!"
+    },
+    {
+      "variatie": 7,
+      "bekendmaking": "Je tikt met je pen op je notitieblok.\nIets aan de recente verdwijningen laat je niet los.\nTijd om zelf op onderzoek uit te gaan.\n(1) Ga verder",
+      "uitkiezen": "Wie gedraagt zich verdacht?\nJe kunt slechts één persoon onderzoeken.\n(POLITIE OPTIES PLACEHOLDER)",
+      "afsluittekst weerwolf": "Je kijkt toe hoe (POLITIE KEUZE) de bosrand nadert.\nEven later hoor je een onheilspellend gehuil.\nEen weerwolf!",
+      "afsluittekst dorpeling": "Je observeert (POLITIE KEUZE) in de supermarkt.\nHij twijfelt tussen twee soorten kaas.\nGeen gevaar hier.\nHet is geen weerwolf!"
+    },
+    {
+      "variatie": 8,
+      "bekendmaking": "De maan werpt lange schaduwen over het verlaten dorpsplein.\nJe voelt de haren in je nek overeind komen.\nMisschien is het tijd om op onderzoek uit te gaan.\n(1) Ga verder",
+      "uitkiezen": "Wie verdient extra aandacht?\nJe kunt maar één persoon volgen.\n(POLITIE OPTIES PLACEHOLDER)",
+      "afsluittekst weerwolf": "Je bent nog maar net begonnen met je onderzoek als je een gegrom hoort.\nJe draait je om en ziet (POLITIE KEUZE) veranderen.\nEen weerwolf!",
+      "afsluittekst dorpeling": "Je loopt achter (POLITIE KEUZE) aan tot hij bij een school arriveert.\nBlijkbaar werkt hij daar als schoonmaker.\nHet is geen weerwolf!"
+    },
+    {
+      "variatie": 9,
+      "bekendmaking": "Je bladert door een dossier en blijft hangen op een naam.\nIets aan deze persoon voelt… verkeerd.\nTijd om dat uit te zoeken.\n(1) Ga verder",
+      "uitkiezen": "Wie onderzoek je?\nJe kunt niet overal tegelijk zijn.\n(POLITIE OPTIES PLACEHOLDER)",
+      "afsluittekst weerwolf": "Je ziet hoe (POLITIE KEUZE) plotseling de straat op rent.\nBinnen seconden verandert hij in een harig monster.\nEen weerwolf!",
+      "afsluittekst dorpeling": "Je observeert (POLITIE KEUZE) van een afstandje.\nHij helpt gewoon een buurman met het tillen van een zware doos.\nHet is geen weerwolf!"
+    }
+  ],
   "ALGEMEEN": {
-      "weerwolf_actie": [
+    "weerwolf_actie": [
     {
       "variatie": 1,
       "dode_gevallen": "Een ijzige kreet sneed door de nacht...\nDe stilte erna was oorverdovend.\nHelaas moeten we afscheid nemen van (DODE SPELER).\nDe weerwolven hebben weer toegeslagen.",
@@ -234,8 +427,60 @@
       "geen_dode_gevallen": "Een geluid in de verte...\nMaar niemand verdween.\nDe dorpelingen kijken elkaar aan...\nHoe lang zal dit nog duren?"
     }
 
-      ]
+      ],
+    "stemmen": [
+    {
+      "variatie": 1,
+      "unaniem": "Er werd tot de middag lang gediscussieerd.\nUiteindelijk was er toch iemand die net iets verdachter was als alle rest.\n(WEGGESTEMDE SPELER) kreeg de meeste stemmen. En wordt nu weggestuurd van het dorp.\nMaar was dit wel de juiste keuze?",
+      "gelijkstand": "De stemming is voorbij.\nHet was heel erg spannend.\nZelfs te spannend. Er is een gelijkspel tussen (GELIJKSTAND SPELERS)\nDe dag kan zich verder zetten zonder weer iemand te verliezen."
+    },
+    {
+      "variatie": 2,
+      "unaniem": "Er leek maar geen einde te komen aan de gesprekken.\nMaar na een anonieme stemming is er toch 1 iemand uit de bus gekomen.\n(WEGGESTEMDE SPELER) zal zijn koffers moeten pakken.\nWe zullen er misschien nooit achterkomen of dit wel de goede beslissing was.",
+      "gelijkstand": "Het was moeilijk om tot een besluit te komen.\nIedereen kijkt elkaar nerveus aan.\nHet is een gelijkspel tussen (GELIJKSTAND SPELERS)\nNiemand moet vertrekken!"
+    },
+    {
+      "variatie": 3,
+      "unaniem": "Na lange overwegingen is de keuze gemaakt.\n(WEGGESTEMDE SPELER) kreeg de meeste stemmen.\nDe spanning stijgt terwijl hij het dorp verlaat.\nWas dit een vergissing? Tijd zal het leren...",
+      "gelijkstand": "De stemmen zijn geteld, maar het besluit is onbeslist.\nEen gelijkspel tussen (GELIJKSTAND SPELERS).\nVoorlopig blijft iedereen in het dorp."
+    },
+    {
+      "variatie": 4,
+      "unaniem": "De discussie duurde voort, maar uiteindelijk werd een keuze gemaakt.\n(WEGGESTEMDE SPELER) moet het dorp verlaten.\nZou dit de juiste beslissing zijn geweest?",
+      "gelijkstand": "Het leek even alsof er een beslissing werd genomen...\nMaar de stemmen zijn gelijk verdeeld tussen (GELIJKSTAND SPELERS).\nVandaag vertrekt niemand."
+    },
+    {
+      "variatie": 5,
+      "unaniem": "Na een verhitte discussie is het oordeel geveld.\n(WEGGESTEMDE SPELER) moet zijn spullen pakken en vertrekken.\nIs er een fout gemaakt, of was dit de juiste keuze?",
+      "gelijkstand": "Iedereen had een mening, maar geen meerderheid.\nDe stemmen zijn exact gelijk verdeeld tussen (GELIJKSTAND SPELERS).\nNiemand hoeft vandaag te vertrekken."
+    },
+    {
+      "variatie": 6,
+      "unaniem": "De spanning was te snijden.\nNa lang overleg is de keuze gevallen op (WEGGESTEMDE SPELER).\nMet gemengde gevoelens wordt hij uitgezwaaid.\nWas het dorp op het juiste spoor?",
+      "gelijkstand": "Een uitslag waar niemand op rekende...\nDe stemmen zijn gelijk verdeeld tussen (GELIJKSTAND SPELERS).\nNiemand vertrekt, maar de twijfel blijft hangen."
+    },
+    {
+      "variatie": 7,
+      "unaniem": "Een zware beslissing, maar het is gebeurd.\n(WEGGESTEMDE SPELER) kreeg de meeste stemmen en moet vertrekken.\nIs dit een overwinning of een groot verlies?",
+      "gelijkstand": "De stemmen zijn geteld en het resultaat is verrassend.\nEen perfecte gelijkstand tussen (GELIJKSTAND SPELERS).\nVandaag blijft iedereen veilig."
+    },
+    {
+      "variatie": 8,
+      "unaniem": "Het debat heeft een duidelijke uitkomst gehad.\n(WEGGESTEMDE SPELER) kreeg de meeste stemmen en moet het dorp verlaten.\nHeeft het dorp de juiste persoon gekozen?",
+      "gelijkstand": "Wat een spanning! De stemmen zijn exact gelijk verdeeld.\nTussen (GELIJKSTAND SPELERS) is geen verschil te zien.\nIedereen blijft nog even."
+    },
+    {
+      "variatie": 9,
+      "unaniem": "Na een lange dag vol twijfel is het vonnis geveld.\n(WEGGESTEMDE SPELER) moet vertrekken.\nHopelijk was dit de juiste keuze, anders kan het dorp in gevaar zijn...",
+      "gelijkstand": "Iedereen hoopte op een duidelijke keuze, maar dat gebeurde niet.\nHet is een gelijkspel tussen (GELIJKSTAND SPELERS).\nVoor nu blijft iedereen."
+    },
+    {
+      "variatie": 10,
+      "unaniem": "De stemmen zijn geteld en het verdict is duidelijk.\n(WEGGESTEMDE SPELER) moet vertrekken.\nDe vraag blijft: is het dorp nu veiliger?",
+      "gelijkstand": "Geen meerderheid, geen vertrek.\nDe stemmen waren exact gelijk verdeeld tussen (GELIJKSTAND SPELERS).\nIedereen krijgt nog een kans."
     }
+  ]
+}
 
 
 }

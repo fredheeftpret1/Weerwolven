@@ -1,4 +1,4 @@
-from handige_functies import krijg_teksten, print_story_confirmation, print_story
+from handige_functies import krijg_teksten, print_story_confirmation, print_story, print_story_pick_from_list
 import random
 from time import sleep
 
@@ -37,12 +37,12 @@ def voer_weerwolf_uit(player, spel):
     uitkiezen = weerwolven_teksten[variatie_index]["uitkiezen"]
     uitkiezen = uitkiezen.replace("(WOLF KEUZE PLACEHOLDER)", wolven_keuze(spel))
     opties = wolven_opties(spel)
-    uitkiezen = uitkiezen.replace("(WOLF OPTIES PLACEHOLDER)", wolven_opties_namen(opties))
-    keuze = print_story_confirmation(uitkiezen, len(opties))
-    spel.weerwolf_keuzes.append(opties[keuze - 1])
+    uitkiezen = uitkiezen.replace("(WOLF OPTIES PLACEHOLDER)", opties_namen_uit_lijst(opties))
+    keuze = print_story_confirmation(uitkiezen, len(opties)) - 1 # -1 omdat de eerste in de lijst 0 is en de input gaat dan 1 zijn
+    spel.weerwolf_keuzes.append(opties[keuze])
     # Vertel de eindzin
     eindzin = weerwolven_teksten[variatie_index]["afsluittekst"]
-    eindzin = eindzin.replace("(WOLF KEUZE)", spel.spelers_lijst[keuze].naam)
+    eindzin = eindzin.replace("(WOLF KEUZE)", opties[keuze].naam)
     print_story(eindzin)
 
     input("Druk op ENTER in om je beurt te beëindigen >>")
@@ -78,16 +78,88 @@ def wolven_keuze(spel):
 def wolven_opties(spel):
     return lijst_andere_behalve_rol("Weerwolf", spel)
 
-def wolven_opties_namen(opties):
-    namen = [obj.naam for obj in opties]  # Haal de naam uit elke speler
-    index = 1
-    opties_namen = "Je kan kiezen uit "
-    for naam in namen:
-        opties_namen += "(" + str(index) + ") " + naam + " - "
-        index += 1
+def voer_dokter_uit(speler, spel):
+    # Haal de lijst "DOKTER" op
+    dokter_teksten = krijg_teksten().get("DOKTER", [])
 
-    return opties_namen
+    # Kies een willekeurige variatie
+    variatie_index = random.randint(0, len(dokter_teksten) - 1)
 
+    # Vertel de bekendmaking en vraag naar bevestiging voor het vervolg
+    bekendmaking = dokter_teksten[variatie_index]["bekendmaking"]
+    bekendmaking = bekendmaking.replace("(DOKTER BEKENDMAKING PLACEHOLDER)", dokter_bekendmaking(speler,spel))
+    print_story_confirmation(bekendmaking, 1)
+
+    # Vertel het uitkiezen en vraag naar bevestiging wie te redden
+    uitkiezen = dokter_teksten[variatie_index]["uitkiezen"]
+    uitkiezen = uitkiezen.replace("(DOKTER KEUZE PLACEHOLDER)", dokter_keuze(spel))
+    opties = lijst_andere_behalve_jezelf(speler, spel)
+    uitkiezen = uitkiezen.replace("(DOKTER OPTIES PLACEHOLDER)", opties_namen_uit_lijst(opties))
+    keuze = print_story_confirmation(uitkiezen, len(opties)) - 1 # -1 omdat de eerste in de lijst 0 is en de input gaat dan 1 zijn
+    spel.dokter_keuzes.append(opties[keuze])
+    # Vertel de eindzin
+    eindzin = dokter_teksten[variatie_index]["afsluittekst"]
+    eindzin = eindzin.replace("(DOKTER KEUZE)", opties[keuze].naam)
+    print_story(eindzin)
+
+    input("Druk op ENTER in om je beurt te beëindigen >>")
+
+def dokter_bekendmaking(speler, spel):
+    andere_dokters = lijst_andere_van_rol("Dokter",speler, spel)
+    namen = [obj.naam for obj in andere_dokters]  # Haal de naam uit elke dokter
+
+    match len(andere_dokters):
+        case 0: bekendmaking = "Jij bent de enige dokter!"
+
+        case 1: bekendmaking = f"{namen[0]} is ook een dokter!"
+
+        case _: bekendmaking = f"{', '.join(namen[:-1])} en {namen[-1]} zijn ook dokters!"
+
+    return bekendmaking
+
+def dokter_keuze(spel):
+    namen = [obj.naam for obj in spel.dokter_keuzes]  # Haal de naam uit elke dokter keuze
+
+    match len(spel.dokter_keuzes):
+        case 0:
+            keuze_tekst = "Er is nog niemand aangeduid om te genezen"
+
+        case 1:
+            keuze_tekst = f"{namen[0]} is al gekozen als mogelijk patiënt!"
+
+        case _:
+            keuze_tekst = f"{', '.join(namen[:-1])} en {namen[-1]} zijn al gekozen als mogelijke patiënten!"
+
+    return keuze_tekst
+
+
+def voer_politie_uit(speler, spel):
+    # Haal de lijst "POLITIE" op
+    politie_teksten = krijg_teksten().get("POLITIE", [])
+
+    # Kies een willekeurige variatie
+    variatie_index = random.randint(0, len(politie_teksten) - 1)
+
+    # Vertel de bekendmaking en vraag naar bevestiging voor het vervolg
+    bekendmaking = politie_teksten[variatie_index]["bekendmaking"]
+    print_story_confirmation(bekendmaking, 1)
+
+    # Vertel het uitkiezen en vraag naar bevestiging wie te redden
+    uitkiezen = politie_teksten[variatie_index]["uitkiezen"]
+    opties = lijst_andere_behalve_jezelf(speler, spel)
+    uitkiezen = uitkiezen.replace("(POLITIE OPTIES PLACEHOLDER)", opties_namen_uit_lijst(opties))
+    keuze = print_story_confirmation(uitkiezen, len(opties)) - 1
+
+    # Vertel de eindzin
+    if opties[keuze].rol == "Weerwolf":
+        eindzin = politie_teksten[variatie_index]["afsluittekst weerwolf"]
+    else:
+        eindzin = politie_teksten[variatie_index]["afsluittekst dorpeling"]
+
+    eindzin = eindzin.replace("(POLITIE KEUZE)", opties[keuze].naam)
+    print_story(eindzin)
+
+    input("Druk op ENTER in om je beurt te beëindigen >>")
 
 def lijst_andere_van_rol(rol, actieve_speler, spel):
     lijst = []
@@ -102,6 +174,20 @@ def lijst_andere_behalve_rol(rol, spel):
         if speler.rol != rol:
             lijst.append(speler)
     return lijst
+
+def lijst_andere_behalve_jezelf(speler, spel):
+    lijst = spel.levende_spelers()
+    lijst.remove(speler)
+    return lijst
+
+def opties_namen_uit_lijst(opties):
+    namen = [obj.naam for obj in opties]  # Haal de namen op
+    opties_namen = "Je kan kiezen uit " + " - ".join(
+        f"({i + 1}) {namen[i]}" for i in range(len(namen))
+    )
+
+    return opties_namen
+
 
 class Speler:
     def __init__(self, naam, rol):
@@ -127,12 +213,20 @@ class Speler:
             case "Weerwolf":
                 voer_weerwolf_uit(self, spel)
             case "Politie":
-                police()
+                voer_politie_uit(self,  spel)
             case "Dokter":
-                doctor()
+                voer_dokter_uit(self, spel)
             case _:
                 print("Rol niet herkend")
 
         self.beurt_gespeeld = True
+
+    def vraag_stem(self, spelers_lijst):
+        spelers_lijst.remove(self)
+
+        print_story("Wie denk jij dat de weerwolf is?")
+        stem = spelers_lijst[print_story_pick_from_list(spelers_lijst) - 1].naam
+        input("Jij hebt gestemd op " + stem + ". Druk op ENTER om door te gaan.")
+        return stem
 
 

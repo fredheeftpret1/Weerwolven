@@ -1,5 +1,5 @@
 from speler_fabriek import Speler
-from handige_functies import clear_console, print_story, krijg_teksten
+from handige_functies import clear_console, print_story, krijg_teksten, print_story_confirmation, print_story_pick_from_list
 import random
 from collections import Counter
 
@@ -63,9 +63,7 @@ def maak_spelers_lijst():
 def maak_debug_spelers():
     spelers_lijst = []
     spelers_lijst.append(Speler("Wolf", "Weerwolf"))
-    spelers_lijst.append(Speler("Dorp 1", "Dorpeling"))
-    spelers_lijst.append(Speler("Dorp 2", "Dorpeling"))
-    spelers_lijst.append(Speler("Dorp 3", "Dorpeling"))
+    spelers_lijst.append(Speler("Politie", "Politie"))
 
     return spelers_lijst
 
@@ -89,15 +87,43 @@ def kies_volgende_speler(spelers_lijst):
 
 def afhandelen_dode_speler(spel):
     dode_speler = wie_gaat_er_dood(spel)
+    geredde_speler = wie_wordt_gered(spel)
+    if dode_speler == geredde_speler:
+        dode_speler = None
+
     if dode_speler is None:
         print_story(genereer_tekst_wolven_actie(False))
     else:
         actie_tekst = genereer_tekst_wolven_actie(True)
         actie_tekst = actie_tekst.replace("(DODE SPELER)", dode_speler.naam)
         print_story(actie_tekst)
-    for speler in spel.spelers_lijst:
-        if speler.naam == dode_speler.naam:
-            speler.is_dood = True
+        for speler in spel.spelers_lijst:
+            if speler.naam == dode_speler.naam:
+                speler.is_dood = True
+
+def genereer_tekst_stemming(stemmen_dict, spel):
+    algemene_teksten = krijg_teksten().get("ALGEMEEN", [])
+    stemmen_teksten = algemene_teksten.get("stemmen")
+
+    # Kies een willekeurige variatie
+    variatie_index = random.randint(0, len(stemmen_teksten) - 1)
+
+    stemming_tekst = "\n".join(f"{key} heeft gestemd op {value}." for key, value in stemmen_dict.items())
+    print_story(stemming_tekst)
+
+    resultaten = meeste_stemmen(stemmen_dict)
+
+    if len(resultaten) == 1:
+        verliezer = resultaten[0]
+
+        resultaat_tekst = stemmen_teksten[variatie_index].get("unaniem")
+        resultaat_tekst = resultaat_tekst.replace("(WEGGESTEMDE SPELER)", verliezer)
+        spel.geef_speler_bij_naam(verliezer).is_dood = True
+    else:
+        resultaat_tekst = stemmen_teksten[variatie_index].get("gelijkstand")
+        resultaat_tekst = resultaat_tekst.replace("(GELIJKSTAND SPELERS)", ", ".join(resultaten[:-1]) + " en " + resultaten[-1])
+
+    print_story(resultaat_tekst)
 
 def genereer_tekst_wolven_actie(er_is_een_dode):
     algemene_teksten = krijg_teksten().get("ALGEMEEN", [])
@@ -112,7 +138,6 @@ def genereer_tekst_wolven_actie(er_is_een_dode):
         return weerwolf_actie_teksten[variatie_index].get("geen_dode_gevallen")
 
 def wie_gaat_er_dood(spel):
-    #save_saved_person()
     if not spel.weerwolf_keuzes: # If nobody is dead
         return
     counter = Counter(spel.weerwolf_keuzes) # Count the votes
@@ -126,6 +151,16 @@ def wie_gaat_er_dood(spel):
         return spel.weerwolf_keuzes[0]
     else:
         return spel.weerwolf_keuzes[len(spel.weerwolf_keuzes) - 1]
+
+def wie_wordt_gered(spel):
+    # First, check who's saved by doctor
+    if len(spel.dokter_keuzes) == 0:
+        wordt_gered = None
+    elif len(spel.dokter_keuzes) == 1:
+        wordt_gered = spel.dokter_keuzes[0]
+    else:
+        wordt_gered = spel.dokter_keuzes[len(spel.dokter_keuzes) - 1]
+    return wordt_gered
 
 def check_einde_spel(spel):
     werewolves_alive = any(obj.rol == "Weerwolf" for obj in spel.levende_spelers())
@@ -143,14 +178,6 @@ def check_einde_spel(spel):
         return True
 
 
-def vraag_stemming(spelers_lijst):
-    while True:
-        print("Wie denk jij dat de weerwolf is?")
-        stemming = input(">>")
-        if not any(speler.naam == stemming for speler in spelers_lijst):
-            print("Die speler bestaat niet of is al dood.")
-        else:
-            return stemming
 
 def meeste_stemmen(stemmen_dict):
     """Bepaalt wie de meeste stemmen heeft gekregen."""
@@ -165,8 +192,11 @@ def meeste_stemmen(stemmen_dict):
 
     return winnaars
 
+
 class Spel:
     def __init__(self, debug):
+        self.debug = debug
+
         if not debug: print_intro()
         if not debug: self.spelers_lijst = maak_spelers_lijst()
         if debug: self.spelers_lijst = maak_debug_spelers()
@@ -203,42 +233,40 @@ class Spel:
 
         while not iedereen_gespeeld(self.levende_spelers()):
             actieve_speler = kies_volgende_speler(self.levende_spelers())
-            input(actieve_speler.naam + " moet nu gaan stemmen. Geef iets in als jij dit bent.")
-            stemmen_dict[actieve_speler.naam] = vraag_stemming(self.levende_spelers())
+            print_story(actieve_speler.naam + " moet nu gaan stemmen.")
+            stemmen_dict[actieve_speler.naam] = actieve_speler.vraag_stem(self.levende_spelers())
             actieve_speler.beurt_gespeeld = True
             clear_console()
 
-        stemming_tekst = "\n".join(f"{key} heeft gestemd op {value}." for key, value in stemmen_dict.items())
-        print_story(stemming_tekst)
+        input("Iedereen heeft gestemd. Druk op ENTER voor de resultaten.")
+        genereer_tekst_stemming(stemmen_dict, self)
 
-        resultaten = meeste_stemmen(stemmen_dict)
-
-        if len(resultaten) == 1:
-            verliezer = resultaten[0]
-            print_story(verliezer + " heeft de meeste stemmen gekregen. \n" + verliezer + " wordt uit het dorp verjaagd!")
-            self.geef_speler_bij_naam(verliezer).is_dood = True
-        else:
-            resultaat_tekst = ", ".join(resultaten[:-1]) + " en " + resultaten[-1]
-            print_story(resultaat_tekst + " hebben de meeste stemmen gekregen.\nBij een gelijkstand wordt niemand uit het dorp verjaagd.")
+        input("Druk op ENTER om door te gaan naar de volgende nacht.")
 
 
         self.reset()
 
 
+    def debug_parameters(self):
+        #self.weerwolf_keuzes.append(self.spelers_lijst[1])
+        #self.dokter_keuzes.append(self.spelers_lijst[1])
 
+        for s in self.spelers_lijst:
+            s.beurt_gespeeld = False
 
     def spel_loop(self):
+        if self.debug:
+            self.debug_parameters()
 
-        while not self.einde_spel:
-            self.weerwolf_keuzes.append(self.spelers_lijst[1])
-            for s in self.spelers_lijst:
-                s.beurt_gespeeld = True
-
-
+        while True:
             self.beleef_nacht()
             self.einde_spel = check_einde_spel(self)
+            if self.einde_spel:
+                break
             self.beleef_dag()
             self.einde_spel = check_einde_spel(self)
+            if self.einde_spel:
+                break
             self.nacht = + 1
 
     def levende_spelers(self):
