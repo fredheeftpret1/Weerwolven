@@ -1,6 +1,6 @@
 from spel_fabriek import Spel
 
-spel = Spel(False)
+spel = Spel(True)
 
 def main():
     spel.spel_loop()
