@@ -10,12 +10,12 @@
  |___|                                                         |___|
 (_____)-------------------------------------------------------(_____)
 
-Welkom bij Weerwolven Verteller van Finn Rijnhout!
+Welkom bij Weerwolven Verteller van Finn en Sjim Rijnhout!
 Dit spel is een beetje anders als normale Weerwolven.
 Er zijn vier rollen:
 - Weerwolf
 De weerwolf mag 1 persoon kiezen. Nadat de nacht voorbij is gaan we kijken welke persoon het meeste is gekozen.
-Die wordt opgegeten. Worden er meerdere personen als meest gekozen? Dan gaat er een willekeurig dood.
+Die wordt opgegeten.
 - Dorpeling
 De dorpeling krijgt een grappig verhaal te zien.
 - Dokter
@@ -25,7 +25,7 @@ Als er maar 1 persoon als meeste wordt gekozen, en er zijn geen anderen, en de d
 De politie mag elke nacht van 1 iemand weten of hij/zij een weerwolf is of niet.
 
 Regels:
-Iedereen gaat om te beurt naar de computer. Daar wordt gevraagd wie hij/zij is. Het is VERBODEN om een andere naam in te geven.
+Iedereen gaat om te beurt naar de computer.
 Daarna kan deze persoon zijn/haar rol uitvoeren.
 Na dat iedereen is geweest, begint het stemmen. Iedereen gaat om te beurt naar de computer en stem daar op een verdachte.
 Eens dat iedereen heeft gestemd, wordt de persoon met de meeste stemmen gevangengenomen.

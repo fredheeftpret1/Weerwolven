@@ -2,6 +2,8 @@ from handige_functies import krijg_teksten, print_story_confirmation, print_stor
 import random
 from time import sleep
 
+spelers = {}
+
 def voer_dorpeling_uit(spel):
     # Haal de lijst "DORPELING" op
     dorpelingen_teksten = krijg_teksten().get("DORPELING", [])
@@ -191,6 +193,7 @@ def opties_namen_uit_lijst(opties):
 
 class Speler:
     def __init__(self, naam, rol):
+        global spelers
         self.naam = naam
         self.rol = rol
         self.beurt_gespeeld = False
@@ -201,6 +204,7 @@ class Speler:
         else:
             self.developer = False
 
+        spelers[naam] = rol
 
         print(f"Welkom bij het spel, {self.naam}!")
         sleep(1)
@@ -228,5 +232,10 @@ class Speler:
         stem = spelers_lijst[print_story_pick_from_list(spelers_lijst) - 1].naam
         input("Jij hebt gestemd op " + stem + ". Druk op ENTER om door te gaan.")
         return stem
+
+
+    @classmethod
+    def verkrijg_spelers(cls):
+        return spelers
 
 
