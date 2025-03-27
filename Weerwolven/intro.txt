@@ -29,13 +29,7 @@ Iedereen gaat om te beurt naar de computer.
 Daarna kan deze persoon zijn/haar rol uitvoeren.
 Na dat iedereen is geweest, begint het stemmen. Iedereen gaat om te beurt naar de computer en stem daar op een verdachte.
 Eens dat iedereen heeft gestemd, wordt de persoon met de meeste stemmen gevangengenomen.
-Als er 2 of meer personen zijn met de meeste stemmen, gaat er 1 willekeurig dood.
 Na het spel wordt het spel opgeslagen in de map "Alle opgeslagen spellen", in een leuke verhaalvorm.
-
-BELANGRIJK:
-Als iedereen is geweest in de nacht of bij het stemmen, wordt nog eens gevraagd wie je bent.
-Hier moet je gewoon een random naam typen.
-Er wordt gewerkt aan deze fout.
 
 Geniet ervan!
 Heb je vragen, suggesties of heb je een fout ontdekt?
