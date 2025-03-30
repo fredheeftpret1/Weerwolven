@@ -4,7 +4,7 @@ from time import sleep
 
 spelers = {}
 
-def voer_dorpeling_uit(spel):
+def voer_dorpeling_uit():
     # Haal de lijst "DORPELING" op
     dorpelingen_teksten = krijg_teksten().get("DORPELING", [])
 
@@ -213,7 +213,7 @@ class Speler:
     def voer_rol_uit(self, spel):
         match self.rol:
             case "Dorpeling":
-                voer_dorpeling_uit(spel)
+                voer_dorpeling_uit()
             case "Weerwolf":
                 voer_weerwolf_uit(self, spel)
             case "Politie":
