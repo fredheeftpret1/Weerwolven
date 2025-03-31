@@ -18,7 +18,7 @@ def slaag_op(bestand, spel):
 
     text = text.replace("{spelers_namen}", ", ".join(spelers))
     text = text.replace("{nacht}", str(spel.nacht))
-    text = text.replace("{Winmanier}", spel.einde_spel.replace("zijn", "waren"))
+    text = text.replace("{Winmanier}", spel.einde_tekst.replace("zijn", "waren"))
     text = text.replace("{rollen}", str(rollen_tekst))
     text = text.replace("{datum}", datetime.date.today().strftime("%d/%m/%Y"))
     with open(nieuwe_map + datetime.date.today().strftime("%d/%m/%Y") + ".txt", "w") as file:

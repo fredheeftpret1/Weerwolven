@@ -212,15 +212,15 @@ def check_einde_spel(spel):
     villagers_alive = any(obj.rol != "Weerwolf" for obj in spel.levende_spelers())
     if werewolves_alive and villagers_alive:
         if spel.debug: print_story("Er zijn nog weerwolven en dorpsbewoners over.")
-        return False
+        return False, "Er zijn nog weerwolven en dorpsbewoners over."
 
     elif werewolves_alive and not villagers_alive:
         print_story(genereer_eind_tekst(spel, "weerwolven_winnen"))
-        return True
+        return True, "Er zijn nog weerwolven over."
 
     elif not werewolves_alive and villagers_alive:
         print_story(genereer_eind_tekst(spel, "dorpelingen_winnen"))
-        return True
+        return True, "Er zijn nog dorpelingen over."
 
 
 
@@ -252,6 +252,7 @@ class Spel:
         self.dokter_keuzes = []
         self.dokter_nr = 1
         self.weerwolf_nr = 1
+        self.einde_tekst = ""
 
 
     def reset(self):
@@ -311,11 +312,11 @@ class Spel:
 
         while True:
             self.beleef_nacht()
-            self.einde_spel = check_einde_spel(self)
+            self.einde_spel, self.einde_tekst = check_einde_spel(self)
             if self.einde_spel:
                 break
             self.beleef_dag()
-            self.einde_spel = check_einde_spel(self)
+            self.einde_spel, self.einde_tekst = check_einde_spel(self)
             if self.einde_spel:
                 break
             self.nacht += 1
