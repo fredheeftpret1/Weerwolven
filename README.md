@@ -35,7 +35,7 @@ python main.py
 
 ## 📌 Stem-systeem
 Het spel gebruikt een dynamisch stem-systeem voor de **weerwolf** en **dokter**:
-- De eerste speler die stemt, krijgt een lagere stemwaarde.
+- De eerste speler die stemt, krijgt de laagste stemwaarde.
 - De laatste speler die stemt, krijgt de hoogste stemwaarde.
 
 ## 📜 Contributie

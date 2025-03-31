@@ -4,11 +4,24 @@ import random
 from collections import Counter
 
 # Variabelen
-start_rollen = ["Dorpeling", "Weerwolf", "Politie", "Dokter",
-         "Dorpeling", "Weerwolf-dokter", "Dorpeling", "Dokter",
-         "Dorpeling", "Weerwolf", "Dorpeling", "Dokter"]
-max_players = 12
+start_rollen = [
+    "Dokter", "Weerwolf", "Dorpeling", "Politie", "Dorpeling",
+    "Weerwolf", "Politie", "Dorpeling", "Dokter", "Weerwolf-dokter",
+    "Dorpeling", "Politie", "Weerwolf-dokter", "Dokter", "Dorpeling",
+    "Weerwolf", "Politie", "Dorpeling", "Dokter", "Weerwolf",
+    "Dorpeling", "Politie", "Dorpeling", "Weerwolf", "Dokter"
+]
+
+max_players = len(start_rollen)
 min_players = 4
+"""
+Rollenverdeling:
+5x Dokter
+5x Weerwolf
+2x Weerwolf-dokter
+8x Dorpeling
+5x Politie
+"""
 
 def print_intro():
     with open("intro.txt", "r") as file:
@@ -58,10 +71,12 @@ def maak_spelers_lijst(spel):
 
     return spelers_lijst
 
-def maak_debug_spelers():
+def maak_debug_spelers(spel):
     spelers_lijst = []
     spelers_lijst.append(Speler("Finn", "Dorpeling"))
     spelers_lijst.append(Speler("Papa", "Politie"))
+    spelers_lijst.append(Speler("Mama", "Weerwolf-dokter"))
+    spel.rollen_lijst = ["Dorpeling", "Politie", "Weerwolf-dokter"]
 
     return spelers_lijst
 
@@ -183,8 +198,8 @@ def wie_wordt_gered(spel):
     return wordt_gered
 
 def check_einde_spel(spel):
-    werewolves_alive = any(obj.rol == "Weerwolf" for obj in spel.levende_spelers())
-    villagers_alive = any(obj.rol != "Weerwolf" for obj in spel.levende_spelers())
+    werewolves_alive = any(obj.rol == "Weerwolf" or obj.rol == "Weerwolf-dokter" for obj in spel.levende_spelers())
+    villagers_alive = any(obj.rol != "Weerwolf" and obj.rol != "Weerwolf-dokter" for obj in spel.levende_spelers())
     if werewolves_alive and villagers_alive:
         if spel.debug: print_story("Er zijn nog weerwolven en dorpsbewoners over.")
         return False, "Er zijn nog weerwolven en dorpsbewoners over."
@@ -219,7 +234,7 @@ class Spel:
 
         if not debug: print_intro()
         if not debug: self.spelers_lijst = maak_spelers_lijst(self)
-        if debug: self.spelers_lijst = maak_debug_spelers()
+        if debug: self.spelers_lijst = maak_debug_spelers(self)
 
         self.einde_spel = False
         self.nacht = 0
@@ -272,14 +287,16 @@ class Spel:
 
 
     def debug_parameters(self):
-        #self.weerwolf_keuzes.append(self.spelers_lijst[1])
-        #self.dokter_keuzes.append(self.spelers_lijst[1])
-
         for s in self.spelers_lijst:
-            if s == self.spelers_lijst[0]:
-                s.beurt_gespeeld = True
-            else:
-                s.is_dood = True
+            s.beurt_gespeeld = True
+
+    def debug_beurt(self):
+        if self.debug:
+            for speler in self.levende_spelers():
+                if speler.naam == "Mama":
+                    pass
+                else:
+                    speler.is_dood = True
 
     def spel_loop(self):
         if self.debug:
@@ -287,6 +304,7 @@ class Spel:
 
         while True:
             self.beleef_nacht()
+            self.debug_beurt()
             self.einde_spel, self.einde_tekst = check_einde_spel(self)
             if self.einde_spel:
                 break

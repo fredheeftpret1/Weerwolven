@@ -1,3 +1,4 @@
+
 from handige_functies import krijg_teksten, print_story_confirmation, print_story, print_story_pick_from_list
 import random
 from time import sleep
@@ -22,7 +23,7 @@ def voer_dorpeling_uit():
     input("Druk op ENTER om je beurt te beëindigen >>")
 
 
-def voer_weerwolf_uit(player, spel, volgorde):
+def voer_weerwolf_uit(player, spel, volgorde, dokter_weerwolf):
     # Haal de lijst "WEERWOLVEN" op
     weerwolven_teksten = krijg_teksten().get("WEERWOLF", [])
 
@@ -33,6 +34,7 @@ def voer_weerwolf_uit(player, spel, volgorde):
     bekendmaking = weerwolven_teksten[variatie_index]["bekendmaking"]
     bekendmaking = bekendmaking.replace("(WOLF BEKENDMAKING PLACEHOLDER)", wolven_bekendmaking(player,spel))
     print_story_confirmation(bekendmaking, 1)
+    if dokter_weerwolf: print_story("Maar jij bent speciaal...\nJij bent een weerwolf-dokter!")
 
     # Vertel het uitkiezen en vraag naar bevestiging wie te doden
     uitkiezen = weerwolven_teksten[variatie_index]["uitkiezen"]
@@ -79,7 +81,11 @@ def wolven_keuze(spel):
     return keuze_tekst
 
 def wolven_opties(spel):
-    return lijst_andere_behalve_rol("Weerwolf", spel)
+    opties = lijst_andere_behalve_rol("Weerwolf", spel)
+    for speler in opties:
+        if speler.rol == "Weerwolf-dokter":
+            opties.remove(speler)
+    return opties
 
 def voer_dokter_uit(speler, spel, volgorde):
     # Haal de lijst "DOKTER" op
@@ -97,6 +103,9 @@ def voer_dokter_uit(speler, spel, volgorde):
     uitkiezen = dokter_teksten[variatie_index]["uitkiezen"]
     uitkiezen = uitkiezen.replace("(DOKTER KEUZE PLACEHOLDER)", dokter_keuze(spel))
     opties = lijst_andere_behalve_jezelf(speler, spel)
+    for speler in opties:
+        if speler.rol == "Weerwolf-dokter":
+            opties.remove(speler)
     uitkiezen = uitkiezen.replace("(DOKTER OPTIES PLACEHOLDER)", opties_namen_uit_lijst(opties))
     keuze = print_story_confirmation(uitkiezen, len(opties)) - 1 # -1 omdat de eerste in de lijst 0 is en de input gaat dan 1 zijn
     stem_waarde = bepaal_waarde("Dokter", volgorde, spel)
@@ -156,7 +165,7 @@ def voer_politie_uit(speler, spel):
     keuze = print_story_confirmation(uitkiezen, len(opties)) - 1
 
     # Vertel de eindzin
-    if opties[keuze].rol == "Weerwolf":
+    if opties[keuze].rol == "Weerwolf" or opties[keuze].rol == "Weerwolf-dokter":
         eindzin = politie_teksten[variatie_index]["afsluittekst weerwolf"]
     else:
         eindzin = politie_teksten[variatie_index]["afsluittekst dorpeling"]
@@ -195,29 +204,14 @@ def opties_namen_uit_lijst(opties):
 
 
 def bepaal_waarde(actieve_rol: str, volgorde, spel):
-    """Bepaalt de waarde van een stem voor de weerwolf/dokter"""
+    """Bepaalt de waarde van een stem voor de weerwolf/dokter.
+    Volgt de berekening andere van de rol -2 + volgorde"""
     andere_van_rol = 0
     for de_rol in spel.rollen_lijst:
         if de_rol == actieve_rol:
             andere_van_rol += 1
-    match andere_van_rol:
-        case 1:
-            stem_waarde = 1
-        case 2:
-            match volgorde:
-                case 1:
-                    stem_waarde = 1
-                case 2:
-                    stem_waarde = 2
-        case 3:
-            match volgorde:
-                case 1:
-                    stem_waarde = 2
-                case 2:
-                    stem_waarde = 3
-                case 3:
-                    stem_waarde = 4
-    return stem_waarde
+    return 1 if andere_van_rol == 1 else andere_van_rol - 2 + volgorde
+
 
 
 class Speler:
@@ -242,10 +236,10 @@ class Speler:
             case "Dorpeling":
                 voer_dorpeling_uit()
             case "Weerwolf":
-                voer_weerwolf_uit(self, volgorde=spel.weerwolf_nr, spel=spel)
+                voer_weerwolf_uit(self, spel, spel.weerwolf_nr, False)
                 spel.weerwolf_nr += 1
             case "Weerwolf-dokter":
-                voer_weerwolf_uit(self, volgorde=spel.weerwolf_nr, spel=spel)
+                voer_weerwolf_uit(self, spel, spel.weerwolf_nr, True)
                 spel.weerwolf_nr += 1
             case "Politie":
                 voer_politie_uit(self,  spel)
