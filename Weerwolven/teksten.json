@@ -479,7 +479,90 @@
       "unaniem": "De stemmen zijn geteld en het verdict is duidelijk.\n(WEGGESTEMDE SPELER) moet vertrekken.\nDe vraag blijft: is het dorp nu veiliger?",
       "gelijkstand": "Geen meerderheid, geen vertrek.\nDe stemmen waren exact gelijk verdeeld tussen (GELIJKSTAND SPELERS).\nIedereen krijgt nog een kans."
     }
-  ]
+  ],
+    "einde":
+      {
+        "dorpelingen_winnen": [
+        {
+          "variatie": 0,
+          "tekst": "De eerste zonnestralen verlichten een dorp dat eindelijk verlost is van zijn nachtmerrie.\nNa vele spanningen en verdachtmakingen hebben de dorpelingen de weerwolven verslagen.\nMet slim overleg en vastberadenheid hebben ze de juiste keuzes gemaakt.\nDe angst die het dorp in zijn greep hield, maakt plaats voor opluchting en vreugde.\nWaar eerst wantrouwen heerste, kan nu weer vertrouwen groeien.\nDe laatste weerwolf is uitgeschakeld, en de rust keert terug in het dorp.\nDe overlevenden, (OVERLEVENDE PLACEHOLDER), kunnen eindelijk weer zonder angst slapen.\nHet dorpsplein vult zich met blije stemmen en opgeluchte gezichten.\nWat een tijd van duistere nachten leek, is nu een verhaal van overwinning.\nGefeliciteerd, dorpelingen, jullie hebben de strijd gewonnen!"
+        },
+    {
+        "variatie": 1,
+        "tekst": "De nachtelijke terreur is voorbij, het dorp ademt weer vrij.\nMet moed en doorzettingsvermogen hebben de dorpelingen de weerwolven overwonnen.\nNa vele discussies en spannende stemrondes is de dreiging voorgoed verdwenen.\nDe angst heeft plaatsgemaakt voor een gevoel van triomf en opluchting.\nHet wantrouwen tussen de inwoners verdwijnt langzaam, vervangen door blijdschap.\nDe laatste weerwolf is verslagen, en het dorp is weer veilig.\nDe overlevenden, (OVERLEVENDE PLACEHOLDER), kunnen eindelijk in alle rust slapen.\nHet dorpsplein vult zich met lachende gezichten en vreugdekreten.\nWat ooit een nachtmerrie was, is nu een legende van overwinning.\nGefeliciteerd, dorpelingen, jullie hebben jullie thuis gered!"
+    },
+    {
+        "variatie": 2,
+        "tekst": "De zon komt op boven een dorp dat zijn vrijheid heeft teruggewonnen.\nNa dagen van onzekerheid hebben de dorpelingen de juiste beslissingen genomen.\nDoor samenwerking en scherp inzicht is de weerwolvenplaag gestopt.\nDe stilte van de ochtend voelt anders, vrediger dan ooit tevoren.\nWaar eerst angst en argwaan heersten, keert vertrouwen terug.\nDe laatste weerwolf is verdwenen, en de dreiging is voorbij.\nDe overlevenden, (OVERLEVENDE PLACEHOLDER), kunnen weer zonder zorgen hun deuren openen.\nHet dorp viert zijn overwinning met gejuich en omhelzingen.\nWat begon als een nachtmerrie, eindigt als een verhaal van hoop.\nGefeliciteerd, dorpelingen, jullie hebben deze strijd gewonnen!"
+    },
+    {
+        "variatie": 3,
+        "tekst": "Met het eerste ochtendlicht komt de zekerheid: het dorp is gered.\nDe dorpelingen hebben standgehouden tegen de dreiging van de weerwolven.\nDoor oplettendheid en slimme keuzes is het kwaad verslagen.\nHet dorp, eens verscheurd door angst, kan eindelijk ademhalen.\nDe inwoners durven elkaar weer recht in de ogen te kijken.\nDe laatste weerwolf is verdwenen en keert nooit meer terug.\nDe overlevenden, (OVERLEVENDE PLACEHOLDER), staan samen in de overwinning.\nDe straten vullen zich met vreugde en hernieuwde vriendschap.\nWat een tragisch einde had kunnen zijn, is een zege geworden.\nGefeliciteerd, dorpelingen, jullie hebben het onmogelijke mogelijk gemaakt!"
+    },
+    {
+        "variatie": 4,
+        "tekst": "De ochtendzon werpt haar eerste stralen op een dorp dat weer veilig is.\nDe dorpelingen hebben met moed en vastberadenheid de strijd gewonnen.\nElke beslissing bracht hen dichter bij het verslaan van de weerwolven.\nDe schaduwen van de nacht maken plaats voor de warmte van de dag.\nHet vertrouwen tussen de inwoners groeit weer met elke lach.\nDe laatste weerwolf is verslagen, en de angst is verdwenen.\nDe overlevenden, (OVERLEVENDE PLACEHOLDER), kunnen weer zonder vrees leven.\nHet dorp bruist van vreugde en opgeluchte gesprekken.\nDe duisternis is overwonnen, en het licht keert terug.\nGefeliciteerd, dorpelingen, jullie hebben de overwinning behaald!"
+    },
+    {
+        "variatie": 5,
+        "tekst": "De lange nachten vol angst en onzekerheid zijn voorbij.\nDe dorpelingen hebben samen de weerwolven verslagen.\nMet oplettendheid en strategie hebben ze het gevaar overwonnen.\nDe dreiging is verdwenen, en rust keert terug in het dorp.\nDe straten voelen niet langer kil en verlaten aan.\nDe laatste weerwolf is verjaagd, en het kwaad is verdreven.\nDe overlevenden, (OVERLEVENDE PLACEHOLDER), kunnen eindelijk ontspannen.\nHet dorp viert feest, wetende dat de nachtmerrie voorbij is.\nWat ooit een hopeloze strijd leek, werd een glorieuze overwinning.\nGefeliciteerd, dorpelingen, jullie hebben bewezen dat samenwerking loont!"
+    },
+    {
+        "variatie": 6,
+        "tekst": "Met de dageraad komt de verlossing: het dorp is vrij.\nDe dorpelingen hebben met wijsheid en moed hun vijanden verslagen.\nDoor samen te werken hebben ze de juiste keuzes gemaakt.\nDe dreiging die hen wakker hield, is voorgoed verdwenen.\nWaar wantrouwen heerste, bloeit nu vriendschap.\nDe laatste weerwolf is gevallen, en het dorp is veilig.\nDe overlevenden, (OVERLEVENDE PLACEHOLDER), kunnen eindelijk hun zorgen laten varen.\nHet dorpsplein vult zich met vreugde en gelach.\nWat begon als een duister hoofdstuk, eindigt in een triomf.\nGefeliciteerd, dorpelingen, jullie hebben het kwaad verslagen!"
+    },
+    {
+        "variatie": 7,
+        "tekst": "De dorpelingen ontwaken met een gevoel van opluchting en vreugde.\nNa een zware strijd hebben ze de weerwolven voorgoed verjaagd.\nElke beslissing heeft hen geleid naar deze overwinning.\nDe rust keert terug, en het dorp kan eindelijk weer opbloeien.\nVroeger gevreesde schaduwen maken plaats voor zonlicht en vertrouwen.\nDe laatste weerwolf is uitgeschakeld en zal nooit meer terugkeren.\nDe overlevenden, (OVERLEVENDE PLACEHOLDER), genieten van hun herwonnen vrijheid.\nHet dorp herstelt zich en viert een glorieuze toekomst.\nDe herinnering aan deze strijd zal hen voor altijd verbinden.\nGefeliciteerd, dorpelingen, jullie zijn de echte winnaars!"
+    },
+    {
+        "variatie": 8,
+        "tekst": "Het eerste ochtendlicht onthult een dorp dat zijn nachtmerrie heeft overwonnen.\nDe dorpelingen hebben samen gestreden en gezegevierd.\nMet zorgvuldige keuzes en scherpe intuïtie hebben ze het gevaar afgewend.\nWat een tragedie had kunnen worden, is nu een triomf.\nWaar angst heerste, groeit opnieuw vertrouwen en vreugde.\nDe laatste weerwolf is verslagen, en de dreiging is voorgoed geweken.\nDe overlevenden, (OVERLEVENDE PLACEHOLDER), kunnen opgelucht ademhalen.\nHet dorpsplein vult zich met gelach en feestvierende mensen.\nDe duistere tijden maken plaats voor een nieuwe, vreedzame dageraad.\nGefeliciteerd, dorpelingen, jullie hebben de overwinning behaald!"
+    },
+    {
+        "variatie": 9,
+        "tekst": "De dageraad brengt eindelijk vrede voor het gehavende dorp.\nNa nachten vol angst en twijfel is de strijd voorbij.\nDe dorpelingen hebben samen het kwaad overwonnen.\nDoor samenwerking en vastberadenheid hebben ze de weerwolven verslagen.\nDe schrikbeelden van de afgelopen dagen vervagen in het zonlicht.\nDe laatste weerwolf is gevallen, en het gevaar is verdwenen.\nDe overlevenden, (OVERLEVENDE PLACEHOLDER), kunnen weer in vrede leven.\nHet dorpsplein vult zich met opluchting en vreugde.\nWat ooit een donker lot leek, is nu een overwinning geworden.\nGefeliciteerd, dorpelingen, jullie zijn de helden van dit verhaal!"
+    }
+      ],
+        "weerwolven_winnen": [
+    {
+        "variatie": 1,
+        "tekst": "De nacht valt voor de laatste keer over het dorp.\nDe dorpelingen hebben gevochten, maar hun inspanningen waren tevergeefs.\nEén voor één zijn ze ten prooi gevallen aan de honger van de weerwolven.\nDe straten liggen verlaten, doordrenkt met de herinnering aan hun wanhoop.\nWaar ooit leven was, heerst nu slechts stilte en duisternis.\nDe weerwolven hebben hun overwinning behaald en heersen over het dorp.\nDe overlevenden, (OVERLEVENDE PLACEHOLDER), kijken toe terwijl hun prooi is uitgeroeid.\nGeen stem van verzet zal ooit nog klinken in dit vervloekte oord.\nDe jacht is voorbij, en de monsters hebben gewonnen.\nGefeliciteerd, weerwolven, jullie hebben het dorp vernietigd!"
+    },
+    {
+        "variatie": 2,
+        "tekst": "De laatste schreeuw sterft weg in de kille nacht.\nDe dorpelingen hebben hun uiterste best gedaan, maar het mocht niet baten.\nMet elke stemming en elke beslissing gleden ze dieper de afgrond in.\nHet dorp is nu niets meer dan een jachtterrein voor de overgebleven weerwolven.\nWaar ooit hoop bestond, heerst nu pure wanhoop.\nDe laatste dorpsbewoner is verslagen, en de strijd is voorbij.\nDe overlevenden, (OVERLEVENDE PLACEHOLDER), genieten van hun wrede overwinning.\nNiemand zal ooit weten wat hier is gebeurd, behalve de beesten die nu regeren.\nHet dorp verdwijnt in de duisternis, voorgoed een prooi van de nacht.\nGefeliciteerd, weerwolven, jullie hebben alles en iedereen uitgeroeid!"
+    },
+    {
+        "variatie": 3,
+        "tekst": "De weerwolven laten hun laatste prooi in het stof vallen.\nDe dorpelingen waren dapper, maar hadden geen schijn van kans.\nMet sluwe tactieken en verborgen dreiging hebben de monsters hun prooi omringd.\nElke dag voelden de dorpelingen de dreiging, maar ze konden niets doen.\nNu is het te laat, en het dorp is ten onder gegaan.\nDe laatste weerstanden zijn gebroken, en de overwinning is compleet.\nDe overlevenden, (OVERLEVENDE PLACEHOLDER), staan triomfantelijk tussen de ruïnes van het dorp.\nDe nacht is hun domein geworden, en niemand zal hen meer bedreigen.\nWaar mensen ooit leefden, heersen nu alleen de beesten.\nGefeliciteerd, weerwolven, het dorp behoort jullie toe!"
+    },
+    {
+        "variatie": 4,
+        "tekst": "Het dorp is stil. Geen gelach, geen stemmen, geen leven meer.\nDe dorpelingen dachten dat ze het gevaar konden bestrijden.\nToch werden ze één voor één opgegeten door de schaduwen die hen omringden.\nElke beslissing, elke verdenking leidde hen dieper de ondergang in.\nNu is het dorp leeg, en de overwinning van de weerwolven is compleet.\nDe nacht overheerst, en niemand zal hier ooit nog veilig zijn.\nDe overlevenden, (OVERLEVENDE PLACEHOLDER), stappen als heersers over de overblijfselen van hun prooi.\nGeen enkele dorpsbewoner leeft nog om hun overwinning te betwisten.\nDe jacht is voorbij, en de monsters regeren nu over het dode dorp.\nGefeliciteerd, weerwolven, jullie hebben gewonnen!"
+    },
+    {
+        "variatie": 5,
+        "tekst": "Het dorp is niet langer een plek voor mensen.\nDe weerwolven hebben in de schaduwen gewacht, en hun moment genomen.\nEén voor één zijn de dorpelingen verdwenen, tot niemand meer over was.\nDe laatste hoop werd gedoofd, en de nacht heeft gewonnen.\nGeen enkele stem van verzet klinkt nog door de straten.\nDe weerwolven zijn de enige overlevenden, en hun overwinning is onbetwist.\nDe overlevenden, (OVERLEVENDE PLACEHOLDER), staan aan de top van de voedselketen.\nDit dorp zal nooit meer hetzelfde zijn, want het behoort nu aan hen toe.\nDe mensheid heeft verloren, en de beesten regeren.\nGefeliciteerd, weerwolven, jullie hebben overwonnen!"
+    },
+    {
+        "variatie": 6,
+        "tekst": "De laatste dorpsbewoner valt, en met hem sterft de hoop.\nDe weerwolven hebben hun prooi één voor één verslonden.\nElke stemronde, elke valse beschuldiging werkte in hun voordeel.\nHet dorp is nu niets meer dan een lege schaduw van wat het ooit was.\nNiemand zal hun overwinning nog kunnen betwisten.\nDe stilte is overweldigend, slechts onderbroken door het gehuil van de winnaars.\nDe overlevenden, (OVERLEVENDE PLACEHOLDER), hebben hun doel bereikt.\nHun honger is gestild, hun jacht is voorbij.\nDe nacht heeft gezegevierd, en de zon zal dit dorp nooit meer zien.\nGefeliciteerd, weerwolven, jullie hebben het spel gewonnen!"
+    },
+    {
+        "variatie": 7,
+        "tekst": "De laatste hoop van het dorp is verdwenen.\nDe weerwolven hebben hun honger gestild en hun vijanden vernietigd.\nWat begon als een strijd om overleving, eindigt in een totale slachting.\nGeen dorpsbewoner is meer over om hun verhaal te vertellen.\nDe duisternis heeft gewonnen, en het dorp is voor altijd verloren.\nSlechts de gehuilde overwinnaars blijven achter, triomfantelijk in hun bloedbad.\nDe overlevenden, (OVERLEVENDE PLACEHOLDER), vieren hun laatste overwinning.\nHun prooi is op, maar hun macht blijft bestaan.\nHet dorp is nu enkel een herinnering aan de doden die het bevolkten.\nGefeliciteerd, weerwolven, jullie hebben alles vernietigd!"
+    },
+    {
+        "variatie": 8,
+        "tekst": "Het dorp was ooit vol leven, maar nu heerst er enkel de dood.\nDe weerwolven hebben hun spel perfect gespeeld.\nElke stemming bracht de dorpelingen verder naar hun eigen einde.\nDe monsters konden rustig toekijken hoe hun prooi zichzelf vernietigde.\nNu is er niemand meer over om zich te verzetten.\nDe nacht is eeuwig, en de overwinning is compleet.\nDe overlevenden, (OVERLEVENDE PLACEHOLDER), genieten van de stilte.\nGeen angstige stemmen, geen verdenkingen meer, enkel hun heerschappij.\nDe jacht is voorbij, en de honger is gestild.\nGefeliciteerd, weerwolven, jullie hebben de ultieme overwinning behaald!"
+    },
+    {
+        "variatie": 9,
+        "tekst": "De dorpelingen vochten, maar hun strijd was zinloos.\nMet iedere verkeerde keuze hebben ze hun lot bezegeld.\nDe weerwolven hebben geduldig gewacht en hun tijd genomen.\nNu is het dorp verlaten, slechts een schim van wat het ooit was.\nGeen mens leeft nog om de zon te zien opkomen.\nDe nacht heeft haar plaats opgeëist en zal nooit meer wijken.\nDe overlevenden, (OVERLEVENDE PLACEHOLDER), wandelen over de ruïnes van hun overwinning.\nDit dorp behoort nu toe aan hen, hun domein van schaduw en angst.\nDe jacht is beëindigd, en de winnaars staan vast.\nGefeliciteerd, weerwolven, jullie heersen over het dorp!"
+    }
+]
+      }
 }
 
 

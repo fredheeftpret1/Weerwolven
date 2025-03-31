@@ -45,16 +45,39 @@ def bepaal_naam_speler(spelers_lijst):
             return naam
 
 
+def bepaal_waarde(actieve_rol: str, volgorde, spel):
+    """Bepaalt de waarde van een stem voor de weerwolf/dokter"""
+    andere_van_rol = 0
+    for de_rol in spel.rollen_lijst:
+        if de_rol == actieve_rol:
+            andere_van_rol += 1
+    match andere_van_rol:
+        case 1:
+            stem_waarde = 1
+        case 2:
+            match volgorde:
+                case 1:
+                    stem_waarde = 1
+                case 2:
+                    stem_waarde = 2
+        case 3:
+            match volgorde:
+                case 1:
+                    stem_waarde = 2
+                case 2:
+                    stem_waarde = 3
+                case 3:
+                    stem_waarde = 4
+    return stem_waarde
 
-
-def maak_spelers_lijst():
+def maak_spelers_lijst(spel):
     aantal_spelers = bepaal_aantal_spelers()
 
-    rollen_lijst = start_rollen[:aantal_spelers]
-    random.shuffle(rollen_lijst)
+    spel.rollen_lijst = start_rollen[:aantal_spelers - 1]
+    random.shuffle(spel.rollen_lijst)
 
     spelers_lijst = []
-    for rol in rollen_lijst:
+    for rol in spel.rollen_lijst:
         naam = bepaal_naam_speler(spelers_lijst)
         spelers_lijst.append(Speler(naam, rol))
 
@@ -62,8 +85,8 @@ def maak_spelers_lijst():
 
 def maak_debug_spelers():
     spelers_lijst = []
-    spelers_lijst.append(Speler("Wolf", "Weerwolf"))
-    spelers_lijst.append(Speler("Politie", "Politie"))
+    spelers_lijst.append(Speler("Finn", "Dorpeling"))
+    spelers_lijst.append(Speler("Papa", "Politie"))
 
     return spelers_lijst
 
@@ -137,6 +160,20 @@ def genereer_tekst_wolven_actie(er_is_een_dode):
     else:
         return weerwolf_actie_teksten[variatie_index].get("geen_dode_gevallen")
 
+def genereer_eind_tekst(spel, winnaars):
+    algemene_teksten = krijg_teksten().get("ALGEMEEN", [])
+    eind_teksten = algemene_teksten.get("einde").get(winnaars)
+
+    # Kies een willekeurige variatie
+    overlevenden = []
+    variatie_index = random.randint(0, len(eind_teksten) - 1)
+    for speler in spel.levende_spelers():
+        overlevenden.append(speler.naam)
+
+    eind_tekst = eind_teksten[variatie_index].get("tekst").replace("(OVERLEVENDE PLACEHOLDER)", ", ".join(overlevenden[:-1]) + " en " + overlevenden[-1])
+    return eind_tekst
+
+
 def wie_gaat_er_dood(spel):
     if not spel.weerwolf_keuzes: # If nobody is dead
         return
@@ -166,15 +203,15 @@ def check_einde_spel(spel):
     werewolves_alive = any(obj.rol == "Weerwolf" for obj in spel.levende_spelers())
     villagers_alive = any(obj.rol != "Weerwolf" for obj in spel.levende_spelers())
     if werewolves_alive and villagers_alive:
-        print_story("Er zijn nog weerwolven en dorpsbewoners over.")
+        if spel.debug: print_story("Er zijn nog weerwolven en dorpsbewoners over.")
         return False
 
     elif werewolves_alive and not villagers_alive:
-        print_story("Er zijn alleen nog weerwolven over.")
+        print_story(genereer_eind_tekst(spel, "weerwolven_winnen"))
         return True
 
     elif not werewolves_alive and villagers_alive:
-        print_story("Er zijn alleen nog dorpsbewoners over.")
+        print_story(genereer_eind_tekst(spel, "dorpelingen_winnen"))
         return True
 
 
@@ -198,13 +235,16 @@ class Spel:
         self.debug = debug
 
         if not debug: print_intro()
-        if not debug: self.spelers_lijst = maak_spelers_lijst()
+        if not debug: self.spelers_lijst = maak_spelers_lijst(self)
         if debug: self.spelers_lijst = maak_debug_spelers()
 
         self.einde_spel = False
         self.nacht = 0
         self.weerwolf_keuzes = []
         self.dokter_keuzes = []
+        self.dokter_nr = 1
+        self.weerwolf_nr = 1
+
 
     def reset(self):
         self.weerwolf_keuzes = []
@@ -252,7 +292,10 @@ class Spel:
         #self.dokter_keuzes.append(self.spelers_lijst[1])
 
         for s in self.spelers_lijst:
-            s.beurt_gespeeld = False
+            if s == self.spelers_lijst[0]:
+                pass
+            else:
+                s.is_dood = True
 
     def spel_loop(self):
         if self.debug:
@@ -267,7 +310,7 @@ class Spel:
             self.einde_spel = check_einde_spel(self)
             if self.einde_spel:
                 break
-            self.nacht = + 1
+            self.nacht += 1
 
     def levende_spelers(self):
         levende_spelers_lijst = [speler for speler in self.spelers_lijst if not speler.is_dood]

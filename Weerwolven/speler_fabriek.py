@@ -1,8 +1,8 @@
 from handige_functies import krijg_teksten, print_story_confirmation, print_story, print_story_pick_from_list
 import random
 from time import sleep
+from spel_fabriek import bepaal_waarde
 
-spelers = {}
 
 def voer_dorpeling_uit():
     # Haal de lijst "DORPELING" op
@@ -23,7 +23,7 @@ def voer_dorpeling_uit():
     input("Druk op ENTER om je beurt te beëindigen >>")
 
 
-def voer_weerwolf_uit(player, spel):
+def voer_weerwolf_uit(player, spel, volgorde):
     # Haal de lijst "WEERWOLVEN" op
     weerwolven_teksten = krijg_teksten().get("WEERWOLF", [])
 
@@ -41,7 +41,9 @@ def voer_weerwolf_uit(player, spel):
     opties = wolven_opties(spel)
     uitkiezen = uitkiezen.replace("(WOLF OPTIES PLACEHOLDER)", opties_namen_uit_lijst(opties))
     keuze = print_story_confirmation(uitkiezen, len(opties)) - 1 # -1 omdat de eerste in de lijst 0 is en de input gaat dan 1 zijn
-    spel.weerwolf_keuzes.append(opties[keuze])
+    keuze_waarde = bepaal_waarde("Weerwolf", volgorde, spel)
+    for i in range(keuze_waarde): # Voeg de keuze de waarde aantal keer toe aan de lijst
+        spel.weerwolf_keuzes.append(opties[keuze])
     # Vertel de eindzin
     eindzin = weerwolven_teksten[variatie_index]["afsluittekst"]
     eindzin = eindzin.replace("(WOLF KEUZE)", opties[keuze].naam)
@@ -80,7 +82,7 @@ def wolven_keuze(spel):
 def wolven_opties(spel):
     return lijst_andere_behalve_rol("Weerwolf", spel)
 
-def voer_dokter_uit(speler, spel):
+def voer_dokter_uit(speler, spel, volgorde):
     # Haal de lijst "DOKTER" op
     dokter_teksten = krijg_teksten().get("DOKTER", [])
 
@@ -98,7 +100,9 @@ def voer_dokter_uit(speler, spel):
     opties = lijst_andere_behalve_jezelf(speler, spel)
     uitkiezen = uitkiezen.replace("(DOKTER OPTIES PLACEHOLDER)", opties_namen_uit_lijst(opties))
     keuze = print_story_confirmation(uitkiezen, len(opties)) - 1 # -1 omdat de eerste in de lijst 0 is en de input gaat dan 1 zijn
-    spel.dokter_keuzes.append(opties[keuze])
+    stem_waarde = bepaal_waarde("Dokter", volgorde, spel)
+    for i in range(stem_waarde): # Voeg de keuze de stem waarde aantal keer toe aan de lijst
+        spel.dokter_keuzes.append(opties[keuze])
     # Vertel de eindzin
     eindzin = dokter_teksten[variatie_index]["afsluittekst"]
     eindzin = eindzin.replace("(DOKTER KEUZE)", opties[keuze].naam)
@@ -193,7 +197,6 @@ def opties_namen_uit_lijst(opties):
 
 class Speler:
     def __init__(self, naam, rol):
-        global spelers
         self.naam = naam
         self.rol = rol
         self.beurt_gespeeld = False
@@ -204,7 +207,6 @@ class Speler:
         else:
             self.developer = False
 
-        spelers[naam] = rol
 
         print(f"Welkom bij het spel, {self.naam}!")
         sleep(1)
@@ -215,11 +217,13 @@ class Speler:
             case "Dorpeling":
                 voer_dorpeling_uit()
             case "Weerwolf":
-                voer_weerwolf_uit(self, spel)
+                voer_weerwolf_uit(self, volgorde=spel.weerwolf_nr, spel=spel)
+                spel.weerwolf_nr += 1
             case "Politie":
                 voer_politie_uit(self,  spel)
             case "Dokter":
-                voer_dokter_uit(self, spel)
+                voer_dokter_uit(self, volgorde=spel.dokter_nr, spel=spel)
+                spel.dokter_nr += 1
             case _:
                 print("Rol niet herkend")
 
@@ -232,10 +236,3 @@ class Speler:
         stem = spelers_lijst[print_story_pick_from_list(spelers_lijst) - 1].naam
         input("Jij hebt gestemd op " + stem + ". Druk op ENTER om door te gaan.")
         return stem
-
-
-    @classmethod
-    def verkrijg_spelers(cls):
-        return spelers
-
-
