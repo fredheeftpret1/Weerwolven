@@ -16,7 +16,7 @@ def slaag_op(bestand, spel):
         rollen_tekst += f"\n{speler.naam} was een {speler.rol}"
         spelers_namen_lijst += f"\n- {speler.naam}"
 
-    text = text.replace("{spelers_namen}", spelers)
+    text = text.replace("{spelers_namen}", ", ".join(spelers))
     text = text.replace("{nacht}", str(spel.nacht))
     text = text.replace("{Winmanier}", spel.einde_spel.replace("zijn", "waren"))
     text = text.replace("{rollen}", str(rollen_tekst))

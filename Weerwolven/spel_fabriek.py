@@ -169,8 +169,16 @@ def genereer_eind_tekst(spel, winnaars):
     variatie_index = random.randint(0, len(eind_teksten) - 1)
     for speler in spel.levende_spelers():
         overlevenden.append(speler.naam)
-
-    eind_tekst = eind_teksten[variatie_index].get("tekst").replace("(OVERLEVENDE PLACEHOLDER)", ", ".join(overlevenden[:-1]) + " en " + overlevenden[-1])
+    match len(overlevenden):
+        case 1:
+            eind_tekst = eind_teksten[variatie_index].get("tekst").replace("(OVERLEVENDE PLACEHOLDER)",
+                                                                   overlevenden[0])
+        case 2:
+            eind_tekst = eind_teksten[variatie_index].get("tekst").replace("(OVERLEVENDE PLACEHOLDER)",
+                                                                   overlevenden[0] + " en " + overlevenden[-1])
+        case _:
+            eind_tekst = eind_teksten[variatie_index].get("tekst").replace("(OVERLEVENDE PLACEHOLDER)",
+                                                                ", ".join(overlevenden[:-1]) + " en " + overlevenden[-1])
     return eind_tekst
 
 
