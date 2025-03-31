@@ -2,11 +2,16 @@ import datetime
 import os
 import sys
 
+from handige_functies import print_story
+
 hoofdmap = os.path.dirname(os.path.abspath(__file__))
 nieuwe_map = os.path.join(hoofdmap, 'Alle opgeslagen spellen')
 os.makedirs(nieuwe_map, exist_ok=True)
 
 def slaag_op(bestand, spel):
+    with open("eind_tekst.txt", "r") as f:
+        print_story(f.read())
+    naam_bestand = input(">> ")
     with open(bestand, "r") as file:
         text = file.read()
 
@@ -22,6 +27,6 @@ def slaag_op(bestand, spel):
     text = text.replace("{Winmanier}", spel.einde_tekst.replace("zijn", "waren"))
     text = text.replace("{rollen}", str(rollen_tekst))
     text = text.replace("{datum}", datetime.date.today().strftime("%d/%m/%Y"))
-    with open(nieuwe_map + "\\Weerwolven " + datetime.date.today().strftime("%d-%m-%Y") + ".txt", "w") as file:
+    with open(nieuwe_map + "\\" + naam_bestand, "w") as file:
         file.write(text)
 
