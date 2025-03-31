@@ -1,7 +1,7 @@
 from spel_fabriek import Spel
 from save import slaag_op
 
-spel = Spel(True)
+spel = Spel(False)
 
 
 def main():

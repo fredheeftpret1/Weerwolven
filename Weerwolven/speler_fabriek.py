@@ -1,7 +1,6 @@
 from handige_functies import krijg_teksten, print_story_confirmation, print_story, print_story_pick_from_list
 import random
 from time import sleep
-from spel_fabriek import bepaal_waarde
 
 
 def voer_dorpeling_uit():
@@ -193,6 +192,32 @@ def opties_namen_uit_lijst(opties):
     )
 
     return opties_namen
+
+
+def bepaal_waarde(actieve_rol: str, volgorde, spel):
+    """Bepaalt de waarde van een stem voor de weerwolf/dokter"""
+    andere_van_rol = 0
+    for de_rol in spel.rollen_lijst:
+        if de_rol == actieve_rol:
+            andere_van_rol += 1
+    match andere_van_rol:
+        case 1:
+            stem_waarde = 1
+        case 2:
+            match volgorde:
+                case 1:
+                    stem_waarde = 1
+                case 2:
+                    stem_waarde = 2
+        case 3:
+            match volgorde:
+                case 1:
+                    stem_waarde = 2
+                case 2:
+                    stem_waarde = 3
+                case 3:
+                    stem_waarde = 4
+    return stem_waarde
 
 
 class Speler:

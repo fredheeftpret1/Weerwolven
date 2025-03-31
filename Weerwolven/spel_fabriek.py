@@ -1,5 +1,5 @@
 from speler_fabriek import Speler
-from handige_functies import clear_console, print_story, krijg_teksten, print_story_confirmation, print_story_pick_from_list
+from handige_functies import clear_console, print_story, krijg_teksten
 import random
 from collections import Counter
 
@@ -44,31 +44,6 @@ def bepaal_naam_speler(spelers_lijst):
         else:
             return naam
 
-
-def bepaal_waarde(actieve_rol: str, volgorde, spel):
-    """Bepaalt de waarde van een stem voor de weerwolf/dokter"""
-    andere_van_rol = 0
-    for de_rol in spel.rollen_lijst:
-        if de_rol == actieve_rol:
-            andere_van_rol += 1
-    match andere_van_rol:
-        case 1:
-            stem_waarde = 1
-        case 2:
-            match volgorde:
-                case 1:
-                    stem_waarde = 1
-                case 2:
-                    stem_waarde = 2
-        case 3:
-            match volgorde:
-                case 1:
-                    stem_waarde = 2
-                case 2:
-                    stem_waarde = 3
-                case 3:
-                    stem_waarde = 4
-    return stem_waarde
 
 def maak_spelers_lijst(spel):
     aantal_spelers = bepaal_aantal_spelers()
@@ -302,7 +277,7 @@ class Spel:
 
         for s in self.spelers_lijst:
             if s == self.spelers_lijst[0]:
-                pass
+                s.beurt_gespeeld = True
             else:
                 s.is_dood = True
 

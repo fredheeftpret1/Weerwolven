@@ -1,5 +1,6 @@
 import datetime
 import os
+import sys
 
 hoofdmap = os.path.dirname(os.path.abspath(__file__))
 nieuwe_map = os.path.join(hoofdmap, 'Alle opgeslagen spellen')
@@ -16,11 +17,11 @@ def slaag_op(bestand, spel):
         rollen_tekst += f"\n{speler.naam} was een {speler.rol}"
         spelers_namen_lijst += f"\n- {speler.naam}"
 
-    text = text.replace("{spelers_namen}", ", ".join(spelers))
+    text = text.replace("{spelers_namen}", spelers_namen_lijst)
     text = text.replace("{nacht}", str(spel.nacht))
     text = text.replace("{Winmanier}", spel.einde_tekst.replace("zijn", "waren"))
     text = text.replace("{rollen}", str(rollen_tekst))
     text = text.replace("{datum}", datetime.date.today().strftime("%d/%m/%Y"))
-    with open(nieuwe_map + datetime.date.today().strftime("%d/%m/%Y") + ".txt", "w") as file:
+    with open(nieuwe_map + "\\Weerwolven " + datetime.date.today().strftime("%d-%m-%Y") + ".txt", "w") as file:
         file.write(text)
 
