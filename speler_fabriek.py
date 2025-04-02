@@ -23,7 +23,7 @@ def voer_dorpeling_uit():
     input("Druk op ENTER om je beurt te beëindigen >>")
 
 
-def voer_weerwolf_uit(player, spel, volgorde, dokter_weerwolf):
+def voer_weerwolf_uit(player, spel, volgorde):
     # Haal de lijst "WEERWOLVEN" op
     weerwolven_teksten = krijg_teksten().get("WEERWOLF", [])
 
@@ -34,7 +34,6 @@ def voer_weerwolf_uit(player, spel, volgorde, dokter_weerwolf):
     bekendmaking = weerwolven_teksten[variatie_index]["bekendmaking"]
     bekendmaking = bekendmaking.replace("(WOLF BEKENDMAKING PLACEHOLDER)", wolven_bekendmaking(player,spel))
     print_story_confirmation(bekendmaking, 1)
-    if dokter_weerwolf: print_story("Maar jij bent speciaal...\nJij bent een weerwolf-dokter!")
 
     # Vertel het uitkiezen en vraag naar bevestiging wie te doden
     uitkiezen = weerwolven_teksten[variatie_index]["uitkiezen"]
@@ -86,6 +85,46 @@ def wolven_opties(spel):
         if speler.rol == "Weerwolf-dokter":
             opties.remove(speler)
     return opties
+
+def voer_dokter_weerwolf_uit(player, spel, volgorde):
+    dokter_teksten = krijg_teksten().get("DOKTER", [])
+    weerwolven_teksten = krijg_teksten().get("WEERWOLF", [])
+
+
+    # Kies een willekeurige variatie
+    variatie_index = random.randint(0, len(dokter_teksten) - 1)
+    uitkiezen = dokter_teksten[variatie_index]["uitkiezen"]
+    uitkiezen = uitkiezen.replace("(DOKTER KEUZE PLACEHOLDER)", dokter_keuze(spel))
+    opties = lijst_andere_behalve_jezelf(player, spel)
+    for speler in opties:
+        if speler.rol == "Weerwolf-dokter":
+            opties.remove(speler)
+    uitkiezen = uitkiezen.replace("(DOKTER OPTIES PLACEHOLDER)", opties_namen_uit_lijst(opties))
+    keuze = print_story_confirmation(uitkiezen,
+                                     len(opties)) - 1  # -1 omdat de eerste in de lijst 0 is en de input gaat dan 1 zijn
+    stem_waarde = bepaal_waarde("Dokter", volgorde, spel)
+    for i in range(stem_waarde):  # Voeg de keuze de stem waarde aantal keer toe aan de lijst
+        spel.dokter_keuzes.append(opties[keuze])
+    # Vertel de eindzin
+    eindzin = dokter_teksten[variatie_index]["afsluittekst"]
+    eindzin = eindzin.replace("(DOKTER KEUZE)", opties[keuze].naam)
+
+    # Kies een willekeurige variatie
+    variatie_index = random.randint(0, len(weerwolven_teksten) - 1)
+    uitkiezen = weerwolven_teksten[variatie_index]["uitkiezen"]
+    uitkiezen = uitkiezen.replace("(WOLF KEUZE PLACEHOLDER)", wolven_keuze(spel))
+    opties = wolven_opties(spel)
+    uitkiezen = uitkiezen.replace("(WOLF OPTIES PLACEHOLDER)", opties_namen_uit_lijst(opties))
+    keuze = print_story_confirmation(uitkiezen,
+                                     len(opties)) - 1  # -1 omdat de eerste in de lijst 0 is en de input gaat dan 1 zijn
+    keuze_waarde = bepaal_waarde("Weerwolf", volgorde, spel)
+    for i in range(keuze_waarde):  # Voeg de keuze de waarde aantal keer toe aan de lijst
+        spel.weerwolf_keuzes.append(opties[keuze])
+    # Vertel de eindzin
+    eindzin = weerwolven_teksten[variatie_index]["afsluittekst"]
+    eindzin = eindzin.replace("(WOLF KEUZE)", opties[keuze].naam)
+    print_story(eindzin)
+
 
 def voer_dokter_uit(speler, spel, volgorde):
     # Haal de lijst "DOKTER" op
@@ -236,11 +275,12 @@ class Speler:
             case "Dorpeling":
                 voer_dorpeling_uit()
             case "Weerwolf":
-                voer_weerwolf_uit(self, spel, spel.weerwolf_nr, False)
+                voer_weerwolf_uit(self, spel, spel.weerwolf_nr)
                 spel.weerwolf_nr += 1
             case "Weerwolf-dokter":
-                voer_weerwolf_uit(self, spel, spel.weerwolf_nr, True)
+                voer_dokter_weerwolf_uit(self, spel, spel.weerwolf_nr)
                 spel.weerwolf_nr += 1
+                spel.dokter_nr += 1
             case "Politie":
                 voer_politie_uit(self,  spel)
             case "Dokter":

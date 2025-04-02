@@ -288,7 +288,10 @@ class Spel:
 
     def debug_parameters(self):
         for s in self.spelers_lijst:
-            s.beurt_gespeeld = True
+            if s.rol == "Weerwolf-dokter":
+                pass
+            else:
+                s.beurt_gespeeld = True
 
     def debug_beurt(self):
         if self.debug:
