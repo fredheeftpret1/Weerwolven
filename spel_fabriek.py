@@ -110,9 +110,7 @@ def afhandelen_dode_speler(spel):
         actie_tekst = genereer_tekst_wolven_actie(True)
         actie_tekst = actie_tekst.replace("(DODE SPELER)", dode_speler.naam)
         print_story(actie_tekst)
-        for speler in spel.spelers_lijst:
-            if speler.naam == dode_speler.naam:
-                speler.is_dood = True
+        dode_speler.is_dood = True
 
 def genereer_tekst_stemming(stemmen_dict, spel):
     algemene_teksten = krijg_teksten().get("ALGEMEEN", [])
@@ -173,7 +171,7 @@ def genereer_eind_tekst(spel, winnaars):
 
 
 def wie_gaat_er_dood(spel):
-    if not spel.weerwolf_keuzes: # If nobody is dead
+    """if not spel.weerwolf_keuzes: # If nobody is dead
         return
     counter = Counter(spel.weerwolf_keuzes) # Count the votes
     max_count = max(counter.values()) # Max values
@@ -185,17 +183,18 @@ def wie_gaat_er_dood(spel):
     if len(spel.weerwolf_keuzes) == 1:
         return spel.weerwolf_keuzes[0]
     else:
-        return spel.weerwolf_keuzes[len(spel.weerwolf_keuzes) - 1]
+        return spel.weerwolf_keuzes[len(spel.weerwolf_keuzes) - 1]"""
+    keuzes = meeste_stemmen(spel.weerwolf_keuzes)
+    for speler in spel.levende_spelers():
+        if speler.naam == keuzes[0]:
+            return speler
+
 
 def wie_wordt_gered(spel):
-    # First, check who's saved by doctor
-    if len(spel.dokter_keuzes) == 0:
-        wordt_gered = None
-    elif len(spel.dokter_keuzes) == 1:
-        wordt_gered = spel.dokter_keuzes[0]
-    else:
-        wordt_gered = spel.dokter_keuzes[len(spel.dokter_keuzes) - 1]
-    return wordt_gered
+    keuzes = meeste_stemmen(spel.weerwolf_keuzes)
+    for speler in spel.levende_spelers():
+        if speler.naam == keuzes[0]:
+            return speler
 
 def check_einde_spel(spel):
     werewolves_alive = any(obj.rol == "Weerwolf" or obj.rol == "Weerwolf-dokter" for obj in spel.levende_spelers())
